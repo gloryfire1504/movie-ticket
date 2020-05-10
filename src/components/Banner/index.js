@@ -19,7 +19,7 @@ function Banner(props) {
             </ol>
             <div className="carousel-inner">
                 <div className="carousel-item active">
-                    <img className="d-block w-100 banner-img" src={require('./../../assets/images/Banner/aspettando-fast-furious-9-cosa-sappiamo-trailer-v9-47177.jpg')}
+                    <img className="d-block w-100 banner-img" src={require("./../../assets/images/Banner/aspettando-fast-furious-9-cosa-sappiamo-trailer-v9-47177.jpg")}
                          alt="First slide"/>
                 </div>
                 {/*<div className="carousel-item">*/}
