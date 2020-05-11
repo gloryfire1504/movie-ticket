@@ -1,7 +1,7 @@
 import React from 'react';
 import {BannerStyled} from "./styled";
 
-function Banner(props) {
+const Banner = (props) => {
     return (
         <BannerStyled
             id="carouselExampleIndicators"
@@ -50,8 +50,8 @@ function Banner(props) {
             </a>
         </BannerStyled>
     )
-
 }
+
 
 
 export default Banner;
