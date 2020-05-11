@@ -15,8 +15,12 @@ export const NavBar = styled.nav`
   }
 
   .navbar-secondary {
+  
     & a {
-      & img {
+      align-items: center;
+
+      & .fa-user-circle {
+        width: 30px;
         height: 30px;
       }
 
@@ -24,5 +28,9 @@ export const NavBar = styled.nav`
         color: whitesmoke;
       }
     }
+  }
+
+  .activeNavLink {
+    color: red !important;
   }
 `

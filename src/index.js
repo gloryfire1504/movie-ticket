@@ -8,10 +8,21 @@ import 'jquery/dist/jquery.min'
 import 'popper.js/dist/popper'
 import 'bootstrap/dist/js/bootstrap.min'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import '@fortawesome/fontawesome-free/css/all.min.css'
+import '@fortawesome/fontawesome-free/js/all.min'
+//STORE
+import {createStore} from "redux";
+import {Provider} from "react-redux";
+import rootReducer from "./services/reducers";
 
+const store = createStore(
+    rootReducer
+)
 ReactDOM.render(
     <React.StrictMode>
-        <App/>
+        <Provider store={store}>
+            <App/>
+        </Provider>
     </React.StrictMode>,
     document.getElementById('root')
 );

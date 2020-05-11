@@ -3,7 +3,9 @@ import React from 'react';
 
 function Footer(props) {
     return (
-        <FooterStyled></FooterStyled>
+        <FooterStyled>
+            <h1>FOOTER</h1>
+        </FooterStyled>
     );
 }
 

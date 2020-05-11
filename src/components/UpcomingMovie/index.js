@@ -4,7 +4,9 @@ import {Upcoming} from "./styled";
 
 function UpcomingMovie(props) {
     return (
-        <Upcoming></Upcoming>
+        <Upcoming>
+            <h1>UPCOMING MOVIE</h1>
+        </Upcoming>
     );
 }
 

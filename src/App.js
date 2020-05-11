@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 //COMPONENTS
 import NavigationBar from "./components/NavigationBar";
@@ -8,9 +8,9 @@ import ListMovie from "./components/ListMovie";
 // import Banner from "./components/Banner";
 // import NowShowingMovie from "./components/NowShowingMovie";
 // import UpcomingMovie from "./components/UpcomingMovie";
-import Footer from "./components/Footer";
 //ROUTER
 import {BrowserRouter, Route, Switch} from "react-router-dom";
+import NotFound from "./components/NotFound";
 
 
 function App() {
@@ -28,9 +28,11 @@ function App() {
                 {/*<Footer></Footer>*/}
                 <Switch>
                     <Route path={'/'} exact component={Home}/>
-                    <Route path={'/home'} exact component={Home}/>
+                    <Route path={'/home'} component={Home}/>
                     <Route path='/list-movie' component={ListMovie}/>
+                    <Route component={NotFound}/>
                 </Switch>
+
             </div>
         </BrowserRouter>
     );
