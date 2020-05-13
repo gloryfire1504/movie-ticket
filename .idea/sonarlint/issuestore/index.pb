@@ -12,3 +12,29 @@ N
 src/components/Banner/index.js,4/3/43e44a0e362869bad3a0ff0a997923449594e175
 <
 package.json,7/0/7030d0b2f71b999ff89a343de08c414af32fc93a
+R
+"src/components/ListMovie/styled.js,4/1/41b964781e375551cf5769c605a1d5637870e7f4
+Q
+!src/components/NotFound/styled.js,0/f/0f16ed2e909edb974ff26c784a20661f6ad69e77
+U
+%src/components/UpcomingMovie/index.js,3/9/39b8e632db379d45b38661754ef248a4713c7561
+N
+src/components/Footer/index.js,0/4/046d57f5d0e29b384a7a9e7fc6409d5b3b207982
+L
+src/components/Home/index.js,1/1/1146620855e1d296bab4834f0e1d4e5b3e1d32b2
+W
+'src/components/NowShowingMovie/index.js,0/c/0cfdeb793a60c99431d0e680b8fde338d13abb5b
+H
+src/services/reducers.js,9/0/90615e8446843bbadbb8d2b1e086fc0a17f66edc
+P
+ src/components/NotFound/index.js,6/0/605d5c572d147c939512b8b1d8631a2d86497bdc
+D
+src/serviceWorker.js,9/2/920ab6ab4a57ee20a36df4e3e2e73b70f9969d14
+X
+(src/components/ListMovie/Movie/styled.js,0/e/0e21bbf2889368dd4a8535b94c531bb2adec5e35
+Q
+!src/components/ListMovie/index.js,a/6/a6d96350e59675c95518e11ca3b925d2133c33c9
+W
+'src/components/ListMovie/Movie/index.js,8/b/8b7c45c882afb36b1ef57af61b416e4ebdb20a63
+U
+%src/components/NavigationBar/index.js,f/f/ff12f744d71ae7118a9f40f9fed455626b4d028a

@@ -9,7 +9,7 @@ const CustomLink = ({label, to, activeOnlyWhenExact}) => {
         exact:activeOnlyWhenExact,
     })
     return (
-        <li className={match ? "nav-item concacne" :'nav-item'}>
+        <li className={match ? "nav-item " :'nav-item'}>
             <NavLink
                 activeClassName='activeNavLink'
                 className="nav-link"
