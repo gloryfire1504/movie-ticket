@@ -4,7 +4,6 @@ import {BannerStyled} from "./styled";
 const Banner = (props) => {
     return (
         <BannerStyled
-            id="carouselExampleIndicators"
             className="carousel"
             data-ride="carousel"
         >

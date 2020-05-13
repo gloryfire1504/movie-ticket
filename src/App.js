@@ -17,7 +17,7 @@ function App() {
     return (
         <BrowserRouter>
             <div className="App">
-                <NavigationBar></NavigationBar>
+                <NavigationBar/>
                 {/*<ListMovie></ListMovie>*/}
                 {/*<Banner></Banner>*/}
                 {/*<br/>*/}

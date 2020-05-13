@@ -11,12 +11,16 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import '@fortawesome/fontawesome-free/js/all.min'
 //STORE
-import {createStore} from "redux";
+import {createStore, applyMiddleware,compose} from "redux";
 import {Provider} from "react-redux";
 import rootReducer from "./services/reducers";
+import thunk from "redux-thunk";
+
+const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
 const store = createStore(
-    rootReducer
+    rootReducer,
+    composeEnhancers(applyMiddleware(thunk))
 )
 ReactDOM.render(
     <React.StrictMode>
