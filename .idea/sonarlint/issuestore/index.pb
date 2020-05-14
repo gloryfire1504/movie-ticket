@@ -38,3 +38,15 @@ W
 'src/components/ListMovie/Movie/index.js,8/b/8b7c45c882afb36b1ef57af61b416e4ebdb20a63
 U
 %src/components/NavigationBar/index.js,f/f/ff12f744d71ae7118a9f40f9fed455626b4d028a
+Q
+!src/services/ListMovie/reducer.js,4/6/465e1328d44662caef6022f81d85de4a0892982c
+U
+%src/services/ListMovie/actionTypes.js,e/2/e2b2e8a5362ee523b0ff530ec5888c05a9b4fa45
+P
+ src/services/ListMovie/action.js,7/6/762604ddc73cc578eaa0f555572cfb980fb4c060
+T
+$src/components/MovieDetail/styled.js,3/3/337e0fd778d48974011e1da3ddc66f3c678d1862
+=
+src/routes.js,e/8/e8d89f7a2814c9e07e58bcf9b360f6aa076dd83e
+S
+#src/components/MovieDetail/index.js,f/8/f8975ce8d67f5a5438f9b42113cecf12538684ac

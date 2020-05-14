@@ -17,11 +17,13 @@ class ListMovie extends React.Component {
     }
 
     render() {
+
         let {listMovie} = this.props
         let elementMovie = listMovie.map((movie, index) => {
             return <Movie
                 key={index}
                 movie={movie}
+                match={this.props.match}
             />
         })
         return (
