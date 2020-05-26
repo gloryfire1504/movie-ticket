@@ -3,13 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^4.1.0",
     "@fortawesome/fontawesome-free": "^5.13.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "antd": "^4.2.4",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
+    "formik": "^2.1.4",
     "jquery": "^3.5.1",
+    "jwt-decode": "^2.2.0",
+    "lodash": "^4.17.15",
     "popper.js": "^1.16.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -18,7 +23,8 @@
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.1.0",
+    "yup": "^0.29.0"
   },
   "scripts": {
     "start": "react-scripts start",

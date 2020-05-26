@@ -1,15 +1,18 @@
 import React, {Component} from 'react';
 import {NavLink, useRouteMatch} from "react-router-dom";
 import {NavBar} from "./styled";
+import LogResis from "./LogResis";
+import Logout from "./Logout";
+import {connect} from 'react-redux'
 
 //CUSTOM LINK
 const CustomLink = ({label, to, activeOnlyWhenExact}) => {
     let match = useRouteMatch({
-        path:to,
-        exact:activeOnlyWhenExact,
+        path: to,
+        exact: activeOnlyWhenExact,
     })
     return (
-        <li className={match ? "nav-item " :'nav-item'}>
+        <li className={match ? "nav-item " : 'nav-item'}>
             <NavLink
                 activeClassName='activeNavLink'
                 className="nav-link"
@@ -23,10 +26,11 @@ const CustomLink = ({label, to, activeOnlyWhenExact}) => {
 
 class NavigationBar extends Component {
     render() {
+        const {authenticate} = this.props;
         return (
-            <NavBar className="navbar navbar-expand-md bg-dark navbar-dark">
+            <NavBar className="navbar navbar-expand-md bg-dark navbar-dark my-0">
                 {/* Brand */}
-                <NavLink  className="navbar-brand" to="/">Navbar</NavLink>
+                <NavLink className="navbar-brand" to="/">Navbar</NavLink>
                 {/* Toggler/collapsibe Button */}
                 <button className="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#collapsibleNavbar">
@@ -79,18 +83,16 @@ class NavigationBar extends Component {
                         </li>
                     </ul>
                 </div>
-                <div className="row align-items-center justify-content-between navbar-secondary">
-                    <a className={'row'} href="b">
-                        <i className="fa fa-user-circle"></i>
-                        <span >Đăng nhập</span>
-                    </a>
-                    <a className={'mx-4'} href="a">
-                        <span>Đăng ký</span>
-                    </a>
-                </div>
+                {authenticate && authenticate!==''? <Logout/> : <LogResis/>}
             </NavBar>
         );
     }
 }
 
-export default NavigationBar;
+const mapStateToProps = (state) => {
+    return {
+        authenticate: state.LoginReducer.authenticate
+    }
+}
+
+export default connect(mapStateToProps, null)(NavigationBar);
