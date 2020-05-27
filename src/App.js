@@ -32,7 +32,6 @@ class App extends React.Component {
         return (
             <BrowserRouter>
                 <div className="App">
-                    {<NavigationBar/>}
                     <Switch>
                         {showMenuHome(routesHome)}
                         {}
