@@ -11,6 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import '@fortawesome/fontawesome-free/js/all.min'
 import 'antd/dist/antd.css';
+import 'lodash/lodash.js'
 //STORE
 import {createStore, applyMiddleware,compose} from "redux";
 import {Provider} from "react-redux";

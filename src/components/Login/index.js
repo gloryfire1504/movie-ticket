@@ -6,23 +6,16 @@ import {withRouter} from 'react-router-dom'
 import {Spin} from 'antd';
 import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup'
+import Axios from "axios";
+
 
 class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
             authenticate: false,
-            isLoading: false
         }
     }
-
-    // handleSubmit = (event) => {
-    //     event.preventDefault()
-    //     this.setState({
-    //         isLoading: true,
-    //     })
-    //     this.props.postUser(this.state)
-    // }
 
     static getDerivedStateFromProps(nextProps, prevState) {
         let {authenticate} = prevState;
@@ -38,26 +31,25 @@ class Login extends Component {
         } else return null;
     }
 
-    componentWillUnmount() {
-        this.setState({
-            isLoading: false
-        })
-    }
-
     render() {
         // console.log(this.props)
         //Get props from formik
-        let {values, errors, touched,user,error} = this.props
-        console.log(error)
-        const {isLoading} = this.state;
+        let {
+            // values,
+            errors,
+            touched,
+            // user,
+            handleSubmit,
+            isSubmitting,
+            handleChange
+        } = this.props
         return (
-
             <StyledLogin>
-                <Form className='h-100' onSubmit={this.props.handleSubmit}>
+                <Form className='h-100' onSubmit={handleSubmit}>
                     <div className="container">
                         <div className="d-flex justify-content-center h-100 align-items-center">
                             <Spin
-                                spinning={this.props.isSubmitting}
+                                spinning={isSubmitting}
                             >
                                 <div className="card">
                                     <div className="card-header">
@@ -79,6 +71,7 @@ class Login extends Component {
                                                 {({field}) => (
                                                     <input
                                                         {...field}
+                                                        onChange={handleChange}
                                                         className='form-control'
                                                         placeholder="username"
                                                     />)}
@@ -96,6 +89,7 @@ class Login extends Component {
                                                 {({field}) => (
                                                     <input
                                                         {...field}
+                                                        onChange={handleChange}
                                                         type='password'
                                                         className="form-control"
                                                         placeholder="password"
@@ -127,8 +121,6 @@ class Login extends Component {
                     </div>
                 </Form>
             </StyledLogin>
-
-
         )
     }
 }
@@ -149,25 +141,27 @@ const LoginFormik = withFormik({
             .required('Mật khẩu không được để trống')
             .min(5, 'Mat khau phai tu 6 ki tu tro len')
     }),
-    handleSubmit: (values, action) => {
-        console.log(action)
-        // console.log(values)
-        action.props.postUser(values)
-        console.log(action.props.isSubmitting)
+    handleSubmit: (values, {props, setSubmitting, setFieldError}) => {
+        Axios({
+            method: "POST",
+            url: "http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap",
+            data: values
+        }).then((response) => {
+            props.postUser(response.data)
+        }).catch((error) => {
+            setSubmitting(false)
+            setFieldError('taiKhoan', error.response.data)
+            setFieldError('matKhau', error.response.data)
+        });
 
-        if(action.props.error){
-            // console.log(this.props)
-            action.props.setSubmitting(false)
-            action.setFieldError('taiKhoan', action.props.error.data)
-            action.props.history.push('/admin')
-        }
+
     }
+
 })
 
 const mapStateToProps = (state) => {
     return {
-        user: state.LoginReducer.user,
-        error:state.LoginReducer.error
+        user: state.LoginReducer,
     }
 }
 const mapDispatchToProps = (dispatch) => {

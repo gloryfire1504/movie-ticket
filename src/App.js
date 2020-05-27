@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 //COMPONENTS
-import Home from "./pages/Home";
+// import Home from "./pages/Home";
+import NavigationBar from "./components/NavigationBar";
 import Admin from "./pages/Admin";
 import NotFound from "./components/NotFound";
 import Footer from "./components/Footer";
@@ -13,9 +14,6 @@ import {connect} from 'react-redux'
 import DashBoard from "./components/DashBoard";
 
 class App extends React.Component {
-    authRender = () => {
-        
-    }
     render() {
         const {authenticate, userType} = this.props
         let showMenuHome = (routes) => {
@@ -31,27 +29,20 @@ class App extends React.Component {
                 })
             }
         }
-        // let showMenuAdmin = (routes) => {
-        //     if (routes && routes.length > 0) {
-        //         return routes.map((route, index) => {
-        //             return (<Route
-        //                 key={index}
-        //                 path={route.path}
-        //                 exact={route.exact}
-        //                 component={route.component}
-        //             />)
-        //         })
-        //     }
-        // }
         return (
             <BrowserRouter>
                 <div className="App">
+                    {<NavigationBar/>}
                     <Switch>
                         {showMenuHome(routesHome)}
                         {}
                         <Route path={'/admin'} exact={true} component={Admin}/>
                         <Route path={'/admin/dashboard'} exact={false}
-                               component={authenticate && userType === 'QuanTri' ? DashBoard : NotFound}/>
+                               component={authenticate && userType === 'QuanTri' ? DashBoard : NotFound}
+                               render={(props) => {
+                                   return <NavigationBar {...props}/>
+                               }}
+                        />
                         <Route component={NotFound}/>
                     </Switch>
                     <Footer/>

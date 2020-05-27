@@ -3,10 +3,13 @@ import {StyledDashBoard} from "./styled";
 import './styled.css'
 import SideBar from './SideBar'
 import MainPanel from "./MainPanel";
+import {withRouter} from 'react-router-dom'
 
 
 class DashBoard extends Component {
+
     render() {
+        console.log(this.props)
         return (
             <StyledDashBoard>
                 <div className="wrapper ">
@@ -18,4 +21,4 @@ class DashBoard extends Component {
     }
 }
 
-export default DashBoard;
+export default withRouter(DashBoard);

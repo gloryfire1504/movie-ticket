@@ -92,3 +92,7 @@ S
 #src/components/DashBoard/styled.css,e/9/e9011a7a4f0f9d751125f2f2f74ba5831347fcee
 O
 src/components/Footer/styled.js,a/2/a25c3ff026f2433f1355d3d406ce44c0d57c3fc0
+^
+.src/components/NavigationBar/LogResis/index.js,6/c/6c6c7832aa35f5150a4cecce6cb446bc6dc49e15
+\
+,src/components/NavigationBar/Logout/index.js,b/0/b035be9f6dec6f827d5acaa6f88924a591f350a7

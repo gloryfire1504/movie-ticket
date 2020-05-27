@@ -1,11 +1,10 @@
-import {ERROR, LOG_IN, LOG_OUT} from "../Login/actionTypes";
+import {LOG_IN, LOG_OUT} from "../Login/actionTypes";
 import jwtDecode from 'jwt-decode';
 
 let initialState = {
     user: {},
     authenticate: false,
     userType: '',
-    error:{}
 }
 
 const LoginReducer = (state = initialState, action) => {
@@ -20,14 +19,9 @@ const LoginReducer = (state = initialState, action) => {
         case LOG_OUT:
             localStorage.removeItem('auth')
             return {
-                user:{},
+                user: {},
                 authenticate: false,
                 userType: ''
-            }
-        case ERROR:
-            state.error = action.error
-            return {
-                ...state
             }
         default:
             return {...state}

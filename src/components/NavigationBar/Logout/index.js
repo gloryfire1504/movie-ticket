@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import {logOut} from "../../../services/Login/action";
-import {Link} from "react-router-dom";
+// import {Link} from "react-router-dom";
 import {Button} from "antd";
 
 

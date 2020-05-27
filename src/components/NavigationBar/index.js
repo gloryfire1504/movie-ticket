@@ -81,6 +81,14 @@ class NavigationBar extends Component {
                             >Tin tức
                             </NavLink>
                         </li>
+                        <li className="nav-item">
+                            <NavLink
+                                activeClassName={'activeNavLink'}
+                                className="nav-link"
+                                to="/tin-tuc"
+                            >Admin
+                            </NavLink>
+                        </li>
                     </ul>
                 </div>
                 {authenticate && authenticate!==''? <Logout/> : <LogResis/>}
@@ -91,7 +99,8 @@ class NavigationBar extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        authenticate: state.LoginReducer.authenticate
+        authenticate: state.LoginReducer.authenticate,
+        userType:state.LoginReducer.userType
     }
 }
 

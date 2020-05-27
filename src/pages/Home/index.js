@@ -1,5 +1,5 @@
 import React from 'react';
-import NavigationBar from "../../components/NavigationBar/";
+// import NavigationBar from "../../components/NavigationBar/";
 import Banner from "../../components/Banner";
 import NowShowingMovie from "../../components/NowShowingMovie";
 import UpcomingMovie from "../../components/UpcomingMovie";
@@ -7,7 +7,7 @@ import UpcomingMovie from "../../components/UpcomingMovie";
 function Home(props) {
     return (
         <div>
-            <NavigationBar/>
+            {/*<NavigationBar/>*/}
             <Banner/>
             <NowShowingMovie/>
             <UpcomingMovie/>
