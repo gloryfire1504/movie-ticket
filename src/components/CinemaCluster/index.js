@@ -3,6 +3,7 @@ import {StyledCinemaCluster} from "./styled";
 import {Row, Col} from 'antd'
 import {connect} from "react-redux";
 import {getCinemaClusterInfoAPI, getCinemaInfoAPI} from "../../services/CinemaCluster/action";
+
 class CinemaCluster extends Component {
     componentDidMount() {
         console.log(this.props)
@@ -15,21 +16,26 @@ class CinemaCluster extends Component {
     }
     handleOnclickCinema = (maCumRap) => {
     }
+    //Render thong tin cum rap
     renderCinemaClusterInfoList = () => {
         let {cinemaClusterInfoList} = this.props;
         const eleCinemaCluster = cinemaClusterInfoList.map((item, index) => {
             return (
-                <li onClick={() => {
+
+                <a onClick={() => {
                     this.handleOnclickCinemaCluster(item.maHeThongRap)
-                }} style={{cursor: 'pointer'}}
-                    className="h-100 d-flex justify-content-start align-items-center list-group-item list-group-item-action">
+                }}
+                   style={{cursor: 'pointer'}}
+                   className={`h-100 d-flex justify-content-start align-items-center list-group-item list-group-item-action`}>
                     <img className='cluster-logo' src={item.logo} alt=''/>
                     <span className='ml-3'>{item.tenHeThongRap}</span>
-                </li>
+                </a>
             )
         })
         return eleCinemaCluster;
     }
+    //END Render thong tin cum rap
+    //Render thong tin rap
     renderCinemaInfoList = () => {
         const {cinemaInfoList} = this.props;
         const eleCinema = cinemaInfoList.map((item) => {
@@ -48,8 +54,8 @@ class CinemaCluster extends Component {
             )
         })
         return eleCinema;
-
     }
+    //END Render thong tin rap
 
     render() {
         return (
