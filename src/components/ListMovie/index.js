@@ -3,6 +3,9 @@ import React from 'react';
 import Movie from "./Movie";
 import {connect} from 'react-redux'
 import {getListMovieAPI} from "../../services/ListMovie/action";
+import {Tabs, Row} from "antd"
+
+const {TabPane} = Tabs
 
 class ListMovie extends React.Component {
     constructor(props) {
@@ -27,12 +30,32 @@ class ListMovie extends React.Component {
             />
         })
         return (
-            <StyledList>
-                <div className='container'>
-                    <div className='row'>
-                        {elementMovie}
-                    </div>
-                </div>
+            <StyledList id='list-movie'>
+                <Tabs size='large'
+                      tabBarStyle={{border:"none"}}
+                      animated={false}
+                >
+                    <TabPane tab='Phim đang chiếu' key='1'
+                    >
+                        <div className='container'>
+                            <Row gutter={[24, 24]}
+                                 justify="center"
+                                 align="middle">
+                                {elementMovie}
+                            </Row>
+                        </div>
+                    </TabPane>
+                    <TabPane tab='Phim sắp chiếu' key='2'>
+                        <div className='container'>
+                            <Row gutter={[24, 24]}
+                                 justify="center"
+                                 align="middle">
+                                {elementMovie}
+                            </Row>
+                        </div>
+                    </TabPane>
+                </Tabs>
+
             </StyledList>
         );
     }

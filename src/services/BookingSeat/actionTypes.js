@@ -1,0 +1,1 @@
+export const GET_ROOM_TICKET = "GET_ROOM_TICKET";

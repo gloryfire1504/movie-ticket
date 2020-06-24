@@ -1,41 +1,37 @@
 import Home from "./pages/Home";
-import ListMovie from "./components/ListMovie";
 import MovieDetail from "./components/MovieDetail";
-// import DashBoard from "./components/DashBoard";
+import BookingSeat from "./components/BookingSeat";
+import Register from "./components/Register";
 
 const routesHome = [
     {
         path: '/',
         exact: true,
         component: Home,
-
     },
     {
         path: '/home',
         exact: false,
         component: Home,
-
-    },
-    {
-        path: '/list-movie',
-        exact: false,
-        component: ListMovie,
     },
     {
         path: '/movie-detail/:id',
         exact: false,
         component: MovieDetail,
     },
+    {
+        path: "/booking-seat/:maLichChieu",
+        exact: false,
+        component: BookingSeat,
+    },
+    {
+        path: "/register",
+        exact: false,
+        component: Register,
+    },
+
 ]
 
-// const routesAdmin = [
-//     {
-//         path: '/admin/dashboard',
-//         exact: false,
-//         component: DashBoard,
-//     },
-// ]
 export {
     routesHome,
-    // routesAdmin
 }

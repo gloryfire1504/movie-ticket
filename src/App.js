@@ -3,15 +3,15 @@ import './App.css';
 //COMPONENTS
 // import Home from "./pages/Home";
 import NavigationBar from "./components/NavigationBar";
-import Admin from "./pages/Admin";
+import Login from "./components/Login/";
 import NotFound from "./components/NotFound";
-import Footer from "./components/Footer";
 //ROUTER
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {routesHome} from "./routes";
 //REDUX
 import {connect} from 'react-redux'
 import DashBoard from "./components/DashBoard";
+import AdminLogin from "./components/AdminLogin";
 
 class App extends React.Component {
     render() {
@@ -34,8 +34,8 @@ class App extends React.Component {
                 <div className="App">
                     <Switch>
                         {showMenuHome(routesHome)}
-                        {}
-                        <Route path={'/admin'} exact={true} component={Admin}/>
+                        <Route path={'/login'} exact={false} component={Login}/>
+                        <Route path={'/admin'} exact={true} component={AdminLogin}/>
                         <Route path={'/admin/dashboard'} exact={false}
                                component={authenticate && userType === 'QuanTri' ? DashBoard : NotFound}
                                render={(props) => {
@@ -44,7 +44,6 @@ class App extends React.Component {
                         />
                         <Route component={NotFound}/>
                     </Switch>
-                    <Footer/>
                 </div>
             </BrowserRouter>
         );
@@ -53,8 +52,8 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        authenticate: state.LoginReducer.authenticate,
-        userType: state.LoginReducer.userType
+        authenticate: state.AdminLoginReducer.authenticate,
+        userType: state.AdminLoginReducer.userType
     }
 }
 export default connect(mapStateToProps, null)(App);

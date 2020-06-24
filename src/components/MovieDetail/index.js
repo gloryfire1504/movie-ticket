@@ -2,17 +2,56 @@ import React from 'react';
 import {StyledMovieDetail} from "./styled";
 import {getDetailMovieAPI} from "../../services/MovieDetail/action";
 import {connect} from "react-redux";
+import NavigationBar from "../NavigationBar";
+import {Link} from "react-router-dom";
 
 class MovieDetail extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            movieDetail: {},
+        }
+    }
+
     componentDidMount() {
-        console.log(this.props.match)
         this.props.getDetailMovie(this.props.match.params.id)
     }
 
+    UNSAFE_componentWillReceiveProps(nextProps) {
+        this.setState({
+            movieDetail: nextProps.movieDetail,
+        });
+    }
+
+    renderShowTimes = () => {
+        const {movieDetail} = this.state
+        if (movieDetail.lichChieu) {
+            return movieDetail.lichChieu.map((item) => {
+                return (
+                    <tr>
+                        <td className='text-left'>{item.thongTinRap.tenCumRap}</td>
+                        <td>{item.thongTinRap.tenRap}</td>
+                        <td>{new Date(item.ngayChieuGioChieu).toLocaleDateString()}</td>
+                        <td>{new Date(item.ngayChieuGioChieu).toLocaleTimeString()}</td>
+                        <td>
+                            <button className='btn btn-success'>
+                                <Link style={{color: 'white'}} to={`/booking-seat/${item.maLichChieu}`}>
+                                    Mua vé
+                                </Link>
+                            </button>
+                        </td>
+                    </tr>
+                )
+            })
+        }
+    }
+
     render() {
-        let {movieDetail} = this.props;
+        let {movieDetail} = this.state;
+        console.log(movieDetail)
         return (
             <StyledMovieDetail>
+                <NavigationBar/>
                 <div className='detail-wrapper'>
                     <div className={'container my-3'}>
                         <div className={'row detailMainInfo'}>
@@ -38,8 +77,22 @@ class MovieDetail extends React.Component {
                         </div>
                         <div className='detailDown'></div>
                     </div>
+                    <div className='container'>
+                        <table className="table table-hover">
+                            <thead>
+                            <tr>
+                                <th className='text-left'>Cụm rạp</th>
+                                <th>Tên rạp</th>
+                                <th>Ngày chiếu</th>
+                                <th>Giờ chiếu</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {this.renderShowTimes()}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-
             </StyledMovieDetail>
         );
     }

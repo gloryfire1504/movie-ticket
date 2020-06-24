@@ -39,23 +39,17 @@ class NavigationBar extends Component {
                 {/* Navbar links */}
                 <div className="collapse navbar-collapse " id="collapsibleNavbar">
                     <ul className="navbar-nav">
+                        <CustomLink label={'Home'} to={'/'} activeOnlyWhenExact={true}></CustomLink>
                         {/*<li className="nav-item">*/}
                         {/*    <NavLink*/}
-                        {/*        activeClassName='activeNavLink'*/}
+                        {/*        activeClassName={'activeNavLink'}*/}
                         {/*        className="nav-link"*/}
-                        {/*        exact*/}
-                        {/*        to="/"*/}
-                        {/*    >Home*/}
+                        {/*        to="/list-movie"*/}
+                        {/*    >Danh sách phim*/}
                         {/*    </NavLink>*/}
                         {/*</li>*/}
-                        <CustomLink label={'Home'} to={'/'} activeOnlyWhenExact={true}></CustomLink>
                         <li className="nav-item">
-                            <NavLink
-                                activeClassName={'activeNavLink'}
-                                className="nav-link"
-                                to="/list-movie"
-                            >Danh sách phim
-                            </NavLink>
+                            <a className="nav-link" href='#list-movie'>Danh sách phim</a>
                         </li>
                         <li className="nav-item">
                             <NavLink

@@ -12,29 +12,29 @@ function Footer(props) {
                             <ul className="list-unstyled quick-links">
                                 <li>
                                     <a href="https://www.fiverr.com/share/qb8D02">
-                                        <i className="fa fa-angle-double-right">
+                                        <i className="quick-links-icon fa fa-angle-double-right">
                                         </i>Home
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://www.fiverr.com/share/qb8D02">
-                                        <i className="fa fa-angle-double-right">
+                                        <i className="quick-links-icon fa fa-angle-double-right">
                                         </i>About
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://www.fiverr.com/share/qb8D02">
-                                        <i className="fa fa-angle-double-right">
+                                        <i className="quick-links-icon fa fa-angle-double-right">
                                         </i>FAQ</a>
                                 </li>
                                 <li>
                                     <a href="https://www.fiverr.com/share/qb8D02">
-                                        <i className="fa fa-angle-double-right">
+                                        <i className="quick-links-icon fa fa-angle-double-right">
                                         </i>Get Started</a>
                                 </li>
                                 <li>
                                     <a href="https://www.fiverr.com/share/qb8D02">
-                                        <i className="fa fa-angle-double-right">
+                                        <i className="quick-links-icon fa fa-angle-double-right">
                                         </i>Videos</a>
                                 </li>
                             </ul>
@@ -43,30 +43,30 @@ function Footer(props) {
                             <h5>Quick links</h5>
                             <ul className="list-unstyled quick-links">
                                 <li><a href="https://www.fiverr.com/share/qb8D02"><i
-                                    className="fa fa-angle-double-right"></i>Home</a></li>
+                                    className="quick-links-icon fa fa-angle-double-right"></i>Home</a></li>
                                 <li><a href="https://www.fiverr.com/share/qb8D02"><i
-                                    className="fa fa-angle-double-right"></i>About</a></li>
+                                    className="quick-links-icon fa fa-angle-double-right"></i>About</a></li>
                                 <li><a href="https://www.fiverr.com/share/qb8D02"><i
-                                    className="fa fa-angle-double-right"></i>FAQ</a></li>
+                                    className="quick-links-icon fa fa-angle-double-right"></i>FAQ</a></li>
                                 <li><a href="https://www.fiverr.com/share/qb8D02"><i
-                                    className="fa fa-angle-double-right"></i>Get Started</a></li>
+                                    className="quick-links-icon fa fa-angle-double-right"></i>Get Started</a></li>
                                 <li><a href="https://www.fiverr.com/share/qb8D02"><i
-                                    className="fa fa-angle-double-right"></i>Videos</a></li>
+                                    className="quick-links-icon fa fa-angle-double-right"></i>Videos</a></li>
                             </ul>
                         </div>
                         <div className="col-xs-12 col-sm-4 col-md-4">
                             <h5>Quick links</h5>
                             <ul className="list-unstyled quick-links">
                                 <li><a href="https://www.fiverr.com/share/qb8D02"><i
-                                    className="fa fa-angle-double-right"></i>Home</a></li>
+                                    className="quick-links-icon fa fa-angle-double-right"></i>Home</a></li>
                                 <li><a href="https://www.fiverr.com/share/qb8D02"><i
-                                    className="fa fa-angle-double-right"></i>About</a></li>
+                                    className="quick-links-icon fa fa-angle-double-right"></i>About</a></li>
                                 <li><a href="https://www.fiverr.com/share/qb8D02"><i
-                                    className="fa fa-angle-double-right"></i>FAQ</a></li>
+                                    className="quick-links-icon fa fa-angle-double-right"></i>FAQ</a></li>
                                 <li><a href="https://www.fiverr.com/share/qb8D02"><i
-                                    className="fa fa-angle-double-right"></i>Get Started</a></li>
+                                    className="quick-links-icon fa fa-angle-double-right"></i>Get Started</a></li>
                                 <li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i
-                                    className="fa fa-angle-double-right"></i>Imprint</a></li>
+                                    className="quick-links-icon fa fa-angle-double-right"></i>Imprint</a></li>
                             </ul>
                         </div>
                     </div>
@@ -75,27 +75,27 @@ function Footer(props) {
                             <ul className="list-unstyled list-inline social text-center">
                                 <li className="list-inline-item">
                                     <a href="https://www.fiverr.com/share/qb8D02">
-                                        <i className="fab fa-facebook-f"></i>
+                                        <i className="social-icon fab fa-facebook-f"></i>
                                     </a>
                                 </li>
                                 <li className="list-inline-item">
                                     <a href="https://www.fiverr.com/share/qb8D02">
-                                        <i className="fab fa-twitter"></i>
+                                        <i className="social-icon fab fa-twitter"></i>
                                     </a>
                                 </li>
                                 <li className="list-inline-item">
                                     <a href="https://www.fiverr.com/share/qb8D02">
-                                        <i className="fab fa-instagram"></i>
+                                        <i className="social-icon fab fa-instagram"></i>
                                     </a>
                                 </li>
                                 <li className="list-inline-item">
                                     <a href="https://www.fiverr.com/share/qb8D02">
-                                        <i className="fab fa-google-plus-g"></i>
+                                        <i className="social-icon fab fa-google-plus-g"></i>
                                     </a>
                                 </li>
                                 <li className="list-inline-item"><a href="https://www.fiverr.com/share/qb8D02"
                                 ><i
-                                    className="fa fa-envelope"></i></a>
+                                    className="social-icon fa fa-envelope"></i></a>
                                 </li>
                             </ul>
                         </div>

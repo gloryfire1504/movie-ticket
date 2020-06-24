@@ -16,12 +16,8 @@ R
 "src/components/ListMovie/styled.js,4/1/41b964781e375551cf5769c605a1d5637870e7f4
 Q
 !src/components/NotFound/styled.js,0/f/0f16ed2e909edb974ff26c784a20661f6ad69e77
-U
-%src/components/UpcomingMovie/index.js,3/9/39b8e632db379d45b38661754ef248a4713c7561
 N
 src/components/Footer/index.js,0/4/046d57f5d0e29b384a7a9e7fc6409d5b3b207982
-W
-'src/components/NowShowingMovie/index.js,0/c/0cfdeb793a60c99431d0e680b8fde338d13abb5b
 H
 src/services/reducers.js,9/0/90615e8446843bbadbb8d2b1e086fc0a17f66edc
 P
@@ -56,8 +52,6 @@ S
 #src/services/MovieDetail/reducer.js,d/4/d478c0194a1b86f8efbdc295a267f412a3a086e4
 =
 src/index.css,c/5/c5d38a62d1faae90a2acaa34b79a7ef365c917e4
-]
--src/components/MovieDetail/ShowTimes/index.js,c/8/c878f7d3f1a6c1e91863b44fef986b6638fa74de
 G
 src/pages/Home/index.js,9/b/9bffdeb82052effebb3c0edd38520e79ef2b7848
 Q
@@ -78,10 +72,6 @@ Q
 !src/services/Login/actionTypes.js,b/e/be8f1dc720eb37e845a820405528b22531b33493
 L
 src/services/Login/action.js,0/2/026d48a26e644efe339e0cb5f42a30f8ff9bf537
-X
-(src/components/Login/LoginForm/styled.js,f/a/fa748525f01f43ed6bfc858e4a8eff265b1d3aa1
-W
-'src/components/Login/LoginForm/index.js,6/a/6aa83ad5a1526549c7aec0ea6500f8acf6f6f595
 Y
 )src/components/DashBoard/SideBar/index.js,4/7/4770420e93a0f09625a0de73594ad08e0ea37e45
 [
@@ -96,3 +86,41 @@ O
 .src/components/NavigationBar/LogResis/index.js,6/c/6c6c7832aa35f5150a4cecce6cb446bc6dc49e15
 \
 ,src/components/NavigationBar/Logout/index.js,b/0/b035be9f6dec6f827d5acaa6f88924a591f350a7
+U
+%src/services/CinemaCluster/reducer.js,b/b/bbcfcc2eb2eb652cbadc7b02c5f587b250895929
+Y
+)src/services/CinemaCluster/actionTypes.js,a/2/a29e9994b086215898077e97249a71efe9c1b3a9
+T
+$src/services/CinemaCluster/action.js,b/6/b6e0e4b9a6e78471ee0d2054bc772dbe18b20e5c
+R
+"src/services/BookingSeat/action.js,6/a/6ae569e97cb00f8cb0c44f214e37117fdd9122d4
+W
+'src/services/BookingSeat/actionTypes.js,c/0/c0d5bc1aa35ca7ecfd178e67e7bb59782962aff4
+V
+&src/components/CinemaCluster/styled.js,0/2/02f4c060ddda058ba9b8f320d09919aca5060128
+U
+%src/components/CinemaCluster/index.js,7/c/7cc8c0b247d9fad200774785537de92bb7b8a321
+S
+#src/services/BookingSeat/reducer.js,0/4/049e3ad796de17519d13f3c019a1ac0b7a0fb10d
+[
++src/components/BookingSeat/SeatRow/index.js,e/8/e8e1b16442c9aaa4fc04c0b83955676e68162cdc
+S
+#src/components/BookingSeat/index.js,e/7/e7aa031902586385a0b9680dec8454a7647e3cab
+\
+,src/components/BookingSeat/SeatRow/styled.js,2/c/2c102b3d1a923d831ef6972e71585f9da6bdd39c
+T
+$src/components/BookingSeat/styled.js,9/6/967f64703fbd1d0cfceb63c20b2949ae332d1e72
+R
+"src/components/AdminLogin/index.js,3/a/3a4c1ca574ed22171f52a6f607cb5ea9b362ce61
+_
+/src/components/NavigationBar/LogResis/styled.js,6/4/64a1c3dfa667602cf69faa46e027a9e6c448806c
+Q
+!src/components/Register/styled.js,e/9/e98373836e90ef14671a24ba35c887c48aadb469
+P
+ src/components/Register/index.js,4/5/452179e09d508d049c9aa195488091a727423369
+R
+"src/services/AdminLogin/reducer.js,1/e/1e0e45211bce43511dc761cdd4fa8c8faeb2229e
+V
+&src/services/AdminLogin/actionTypes.js,b/e/bebb779700422012ee64cb105e22115a3e5ee0ab
+Q
+!src/services/AdminLogin/action.js,3/4/34fcfe7acfbe6f688d0defd4afb876252f887735

@@ -19,12 +19,8 @@ class Login extends Component {
 
     static getDerivedStateFromProps(nextProps, prevState) {
         let {authenticate} = prevState;
-        if (nextProps.user.authenticate) {
-            if (nextProps.user.userType === 'QuanTri') {
-                nextProps.history.push('/admin/dashboard');
-            } else {
-                nextProps.history.push('/')
-            }
+        if (nextProps.user.authenticate && nextProps.user.userType === 'KhachHang') {
+            nextProps.history.push('/');
         }
         if (nextProps.user.authenticate !== authenticate) {
             return {authenticate: nextProps.user.authenticate};
@@ -35,23 +31,21 @@ class Login extends Component {
         // console.log(this.props)
         //Get props from formik
         let {
-            // values,
             errors,
             touched,
-            // user,
             handleSubmit,
             isSubmitting,
             handleChange
         } = this.props
         return (
-            <StyledLogin>
+            <StyledLogin style={{height: '100vh'}}>
                 <Form className='h-100' onSubmit={handleSubmit}>
                     <div className="container">
                         <div className="d-flex justify-content-center h-100 align-items-center">
                             <Spin
                                 spinning={isSubmitting}
                             >
-                                <div className="card">
+                                <div style={{height: '450px'}} className="card">
                                     <div className="card-header">
                                         <h3>Sign In</h3>
                                         <div className="d-flex justify-content-end social_icon">
@@ -99,11 +93,12 @@ class Login extends Component {
                                         </div>
                                         {touched.matKhau ? <div className='text-white'>{errors.matKhau}</div> :
                                             <div></div>}
-                                        <div className="row align-items-center remember">
+                                        <div className="my-4 row align-items-center remember">
                                             <input type="checkbox"/>Remember Me
                                         </div>
                                         <div className="form-group">
-                                            <input type="submit" value="Login"
+                                            <input style={{position: "absolute", top: 0, left: 0}} type="submit"
+                                                   value="Login"
                                                    className="btn float-right login_btn"/>
                                         </div>
                                     </div>
@@ -136,7 +131,7 @@ const LoginFormik = withFormik({
         taiKhoan: Yup.string()
             .required('Tài khoản không được để trống!')
             .min(5, 'Tài khoản phải có tối thiểu 5 kí tự')
-            .max(10, 'Tài khoản chỉ được tối đa 10 kí tự'),
+            .max(12, 'Tài khoản chỉ được tối đa 12 kí tự'),
         matKhau: Yup.string()
             .required('Mật khẩu không được để trống')
             .min(5, 'Mat khau phai tu 6 ki tu tro len')
@@ -153,8 +148,6 @@ const LoginFormik = withFormik({
             setFieldError('taiKhoan', error.response.data)
             setFieldError('matKhau', error.response.data)
         });
-
-
     }
 
 })
