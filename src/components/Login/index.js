@@ -14,6 +14,7 @@ class Login extends Component {
         super(props);
         this.state = {
             authenticate: false,
+            isLoadingScreen:false
         }
     }
 
@@ -25,6 +26,18 @@ class Login extends Component {
         if (nextProps.user.authenticate !== authenticate) {
             return {authenticate: nextProps.user.authenticate};
         } else return null;
+    }
+
+    componentDidMount() {
+        setTimeout(() => {
+            let myLoading = document.getElementById('myLoading')
+            myLoading.style.display = 'none';
+        }, 2000)
+    }
+
+    componentWillUnmount() {
+        let myLoading = document.getElementById('myLoading')
+        myLoading.style.display = 'flex'
     }
 
     render() {

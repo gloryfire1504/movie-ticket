@@ -10,11 +10,24 @@ class MovieDetail extends React.Component {
         super(props);
         this.state = {
             movieDetail: {},
+            isLoadingScreen: true,
         }
     }
 
     componentDidMount() {
+        setTimeout(() => {
+            let myLoading = document.getElementById('myLoading')
+            myLoading.style.display = 'none';
+            this.setState({
+                isLoadingScreen:false
+            })
+        }, 2000)
         this.props.getDetailMovie(this.props.match.params.id)
+    }
+
+    componentWillUnmount() {
+        let myLoading = document.getElementById('myLoading')
+        myLoading.style.display = 'flex'
     }
 
     UNSAFE_componentWillReceiveProps(nextProps) {
@@ -54,7 +67,7 @@ class MovieDetail extends React.Component {
                 <NavigationBar/>
                 <div className='detail-wrapper'>
                     <div className={'container my-3'}>
-                        <div className={'row detailMainInfo'}>
+                        <div style={{padding:"60px 0"}} className={'row detailMainInfo'}>
                             <div className={'col-6'}>
                                 <img src={movieDetail.hinhAnh} alt=''/>
                             </div>

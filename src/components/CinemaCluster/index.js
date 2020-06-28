@@ -3,16 +3,37 @@ import {StyledCinemaCluster} from "./styled";
 import {Row, Col} from 'antd'
 import {connect} from "react-redux";
 import {getCinemaClusterInfoAPI, getCinemaInfoAPI} from "../../services/CinemaCluster/action";
-
+import {Element} from 'react-scroll'
 class CinemaCluster extends Component {
-    componentDidMount() {
-        console.log(this.props)
-        this.props.getCinemaClusterInfo()
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            biDanh: '',
+            maCumRap: '',
+            activeClassName: '',
+            normalClassName: ''
+        }
     }
 
-    handleOnclickCinemaCluster = (maHeThongRap) => {
+    componentDidMount() {
+        this.props.getCinemaClusterInfo()
+        this.props.getCinemaInfo("BHDStar");
+        this.setState({
+            activeClassName: 'activeCluster'
+        })
+    }
+
+    handleOnclickCinemaCluster = (maHeThongRap, e) => {
         this.props.getCinemaInfo(maHeThongRap);
+        let listClusterEle = document.getElementsByClassName('listCuster')
+        for (let i = 0; i < listClusterEle.length; i++) {
+            listClusterEle[i].classList.add('normalCluster')
+            listClusterEle[i].classList.remove('activeCluster')
+        }
+        e.target.classList.remove('normalCluster')
+        e.target.classList.add('activeCluster')
+
+
     }
     handleOnclickCinema = (maCumRap) => {
     }
@@ -21,29 +42,33 @@ class CinemaCluster extends Component {
         let {cinemaClusterInfoList} = this.props;
         const eleCinemaCluster = cinemaClusterInfoList.map((item, index) => {
             return (
-
-                <a onClick={() => {
-                    this.handleOnclickCinemaCluster(item.maHeThongRap)
+                <li onClick={(e) => {
+                    this.handleOnclickCinemaCluster(item.maHeThongRap, e)
                 }}
-                   style={{cursor: 'pointer'}}
-                   className={`h-100 d-flex justify-content-start align-items-center list-group-item list-group-item-action`}>
-                    <img className='cluster-logo' src={item.logo} alt=''/>
-                    <span className='ml-3'>{item.tenHeThongRap}</span>
-                </a>
+                    id={index}
+                    key={index}
+                    style={{cursor: 'pointer',}}
+                    className={`${index === 0 ? this.state.activeClassName : ''} listCuster h-100 d-flex justify-content-start align-items-center list-group-item list-group-item-action`}>
+                    <img style={{pointerEvents: 'none'}} className='cluster-logo' src={item.logo} alt=''/>
+                    <span style={{pointerEvents: 'none'}} className='ml-3'>{item.tenHeThongRap}</span>
+                </li>
             )
         })
+
         return eleCinemaCluster;
     }
     //END Render thong tin cum rap
     //Render thong tin rap
     renderCinemaInfoList = () => {
         const {cinemaInfoList} = this.props;
-        const eleCinema = cinemaInfoList.map((item) => {
-            console.log(item)
+        const eleCinema = cinemaInfoList.map((item, index) => {
             return (
                 <li onClick={() => {
                     this.handleOnclickCinema(item.maCumRap)
-                }} style={{cursor: "pointer"}} className="text-left list-group-item list-group-item-action">
+                }}
+                    key={index}
+                    style={{cursor: "pointer"}}
+                    className="text-left list-group-item list-group-item-action">
                     <div>
                         <b>Tên cụm rạp: </b><span>{item.tenCumRap}</span>
                     </div>
@@ -55,25 +80,29 @@ class CinemaCluster extends Component {
         })
         return eleCinema;
     }
+
     //END Render thong tin rap
 
     render() {
         return (
-            <StyledCinemaCluster>
-                <div className='h-100 container-cinema-cluster container'>
-                    <Row>
-                        <Col span={6}>
-                            <ul className="list-group">
-                                {this.renderCinemaClusterInfoList()}
-                            </ul>
-                        </Col>
-                        <Col span={18}>
-                            <ul className="list-group">
-                                {this.renderCinemaInfoList()}
-                            </ul>
-                        </Col>
-                    </Row>
-                </div>
+            <StyledCinemaCluster id='cinema-cluster' >
+                <Element  style={{padding:"60px 0"}} name='cinema-cluster'>
+                    <div className='h-100 container-cinema-cluster container'>
+                        <Row>
+                            <Col span={6}>
+                                <ul className="list-group">
+                                    {this.renderCinemaClusterInfoList()}
+                                </ul>
+                            </Col>
+                            <Col span={18}>
+                                <ul className="list-group">
+                                    {this.renderCinemaInfoList()}
+                                </ul>
+                            </Col>
+                        </Row>
+                    </div>
+                </Element>
+
             </StyledCinemaCluster>
         );
     }

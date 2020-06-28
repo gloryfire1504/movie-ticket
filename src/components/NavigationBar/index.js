@@ -1,91 +1,132 @@
 import React, {Component} from 'react';
-import {NavLink, useRouteMatch} from "react-router-dom";
-import {NavBar} from "./styled";
 import LogResis from "./LogResis";
 import Logout from "./Logout";
 import {connect} from 'react-redux'
-
+import {Link,} from "react-router-dom";
+import * as Scroll from 'react-scroll'
+import {BackTop} from 'antd'
+import {NavBar} from "./styled";
+import chillIcon from '../../assets/images/Icon/chill-icon-0.jpg'
+import {withRouter} from 'react-router-dom'
+//SCROLL LINK
+const ScrollLink = Scroll.Link;
+let scrollSpy = Scroll.scrollSpy;
+// let Events = Scroll.Events;
+// let scroll = Scroll.animateScroll;
 //CUSTOM LINK
-const CustomLink = ({label, to, activeOnlyWhenExact}) => {
-    let match = useRouteMatch({
-        path: to,
-        exact: activeOnlyWhenExact,
-    })
-    return (
-        <li className={match ? "nav-item " : 'nav-item'}>
-            <NavLink
-                activeClassName='activeNavLink'
-                className="nav-link"
-                exact
-                to={to}
-            >{label}
-            </NavLink>
-        </li>
-    )
-}
+// const CustomLink = ({label, to, activeOnlyWhenExact}) => {
+//     let match = useRouteMatch({
+//         path: to,
+//         exact: activeOnlyWhenExact,
+//     })
+//     return (
+//         <li className={match ? "nav-item " : 'nav-item'}>
+//             <NavLink
+//                 activeClassName='activeNavLink'
+//                 className="nav-link"
+//                 exact
+//                 to={to}
+//             >{label}
+//             </NavLink>
+//         </li>
+//     )
+// }
 
 class NavigationBar extends Component {
+    handleHomeOnclick = () => {
+        if (this.props.location.pathname === '/home') {
+            window.scrollTo(0, 0)
+        } else {
+            this.props.history.push('/home')
+        }
+
+    }
+    handleOnclick = () => {
+        this.props.history.push('/home')
+    }
+
     render() {
-        const {authenticate} = this.props;
+        console.log(document.getElementById('list-movie'))
+        console.log(this.props)
+        const {authenticate, location} = this.props;
+        scrollSpy.update()
         return (
-            <NavBar className="navbar navbar-expand-md bg-dark navbar-dark my-0">
-                {/* Brand */}
-                <NavLink className="navbar-brand" to="/">Navbar</NavLink>
-                {/* Toggler/collapsibe Button */}
-                <button className="navbar-toggler" type="button" data-toggle="collapse"
+            <NavBar>
+                <nav id='navbar'
+                     className={`navbar navbar-expand-md bg-dark navbar-dark my-0 ${location.pathname === '/home' ? 'fixed-top' : null}`}>
+                    <Link onClick={this.handleHomeOnclick}
+                          to="/home">
+                        <div style={{
+                            backgroundImage: `url(${chillIcon})`,
+                            backgroundSize: 'cover',
+                            width: "45px",
+                            height: "45px",
+                            cursor: 'pointer'
+                        }}
+                        >
+                        </div>
+                    </Link>
+                    {/* Toggler/collapsibe Button */}
+                    <button
+                        className="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
                         data-target="#collapsibleNavbar">
-                    <span className="navbar-toggler-icon"/>
-                </button>
-                {/* Navbar links */}
-                <div className="collapse navbar-collapse " id="collapsibleNavbar">
-                    <ul className="navbar-nav">
-                        <CustomLink label={'Home'} to={'/'} activeOnlyWhenExact={true}></CustomLink>
-                        {/*<li className="nav-item">*/}
-                        {/*    <NavLink*/}
-                        {/*        activeClassName={'activeNavLink'}*/}
-                        {/*        className="nav-link"*/}
-                        {/*        to="/list-movie"*/}
-                        {/*    >Danh sách phim*/}
-                        {/*    </NavLink>*/}
-                        {/*</li>*/}
-                        <li className="nav-item">
-                            <a className="nav-link" href='#list-movie'>Danh sách phim</a>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink
-                                activeClassName={'activeNavLink'}
-                                className="nav-link"
-                                to="/lich-chieu"
-                            >Lịch Chiếu
-                            </NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink
-                                activeClassName={'activeNavLink'}
-                                className="nav-link"
-                                to="/cum-rap"
-                            >Cụmrạp
-                            </NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink
-                                activeClassName={'activeNavLink'}
-                                className="nav-link"
-                                to="/tin-tuc"
-                            >Tin tức
-                            </NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink
-                                activeClassName={'activeNavLink'}
-                                className="nav-link"
-                                to="/tin-tuc"
-                            >Admin
-                            </NavLink>
-                        </li>
-                    </ul>
-                </div>
-                {authenticate && authenticate!==''? <Logout/> : <LogResis/>}
+                        <span className="navbar-toggler-icon"/>
+                    </button>
+                    {/* Navbar links */}
+                    <div className="collapse navbar-collapse " id="collapsibleNavbar">
+                        <ul className="navbar-nav">
+                            {/*<CustomLink label={'Home'} to={'/'} activeOnlyWhenExact={true}></CustomLink>*/}
+                            <li className="nav-item">
+                                {
+                                    (location.pathname === '/home')
+                                        ?
+                                        <ScrollLink to="list-movie"
+                                                    spy={true}
+                                                    smooth={true}
+                                                    duration={500}
+                                                    offset={-60}
+                                                    className='nav-others nav-link'
+                                                    activeClass='some-active-class'
+                                        >Danh sách phim
+                                        </ScrollLink>
+                                        :
+                                        <a
+                                            className="nav-others nav-link"
+                                            href='#list-movie'
+                                            onClick={this.handleOnclick}
+                                        >Danh sách phim
+                                        </a>
+                                }
+                            </li>
+                            <li className="nav-item">
+                                {
+                                    (location.pathname === '/home')
+                                        ?
+                                        <ScrollLink to="cinema-cluster"
+                                                    spy={true}
+                                                    smooth={true}
+                                                    duration={600}
+                                                    offset={-60}
+                                                    className='nav-others nav-link'
+                                                    activeClass='some-active-class'
+                                        >Cụm rạp
+                                        </ScrollLink>
+                                        :
+                                        <a
+                                            onClick={this.handleOnclick}
+                                            className="nav-others nav-link"
+                                            href='#cinema-cluster'
+                                        >
+                                            Cụm rạp
+                                        </a>
+                                }
+                            </li>
+                        </ul>
+                    </div>
+                    {authenticate && authenticate !== '' ? <Logout/> : <LogResis/>}
+                </nav>
             </NavBar>
         );
     }
@@ -94,8 +135,8 @@ class NavigationBar extends Component {
 const mapStateToProps = (state) => {
     return {
         authenticate: state.LoginReducer.authenticate,
-        userType:state.LoginReducer.userType
+        userType: state.LoginReducer.userType
     }
 }
 
-export default connect(mapStateToProps, null)(NavigationBar);
+export default withRouter((connect(mapStateToProps, null)(NavigationBar)));

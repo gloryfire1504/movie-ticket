@@ -4,6 +4,7 @@ import Movie from "./Movie";
 import {connect} from 'react-redux'
 import {getListMovieAPI} from "../../services/ListMovie/action";
 import {Tabs, Row} from "antd"
+import { Element } from 'react-scroll'
 
 const {TabPane} = Tabs
 
@@ -12,11 +13,18 @@ class ListMovie extends React.Component {
         super(props);
         this.state = {
             listMovie: [],
+            divListMovie:''
         }
     }
 
     componentDidMount() {
         this.props.getListMovie()
+        let divListMovie=document.getElementById('list-movie')
+        this.setState({
+            divListMovie
+        }, () => {
+            console.log(this.state)
+        })
     }
 
     render() {
@@ -31,30 +39,34 @@ class ListMovie extends React.Component {
         })
         return (
             <StyledList id='list-movie'>
-                <Tabs size='large'
-                      tabBarStyle={{border:"none"}}
-                      animated={false}
-                >
-                    <TabPane tab='Phim đang chiếu' key='1'
+                <Element name='list-movie'>
+                    <Tabs size='large'
+                          tabBarStyle={{border:"none"}}
+                          animated={false}
+
                     >
-                        <div className='container'>
-                            <Row gutter={[24, 24]}
-                                 justify="center"
-                                 align="middle">
-                                {elementMovie}
-                            </Row>
-                        </div>
-                    </TabPane>
-                    <TabPane tab='Phim sắp chiếu' key='2'>
-                        <div className='container'>
-                            <Row gutter={[24, 24]}
-                                 justify="center"
-                                 align="middle">
-                                {elementMovie}
-                            </Row>
-                        </div>
-                    </TabPane>
-                </Tabs>
+                        <TabPane tab='Phim đang chiếu' key='1'
+                        >
+                            <div className='container'>
+                                <Row gutter={[24, 24]}
+                                     justify="center"
+                                     align="middle">
+                                    {elementMovie}
+                                </Row>
+                            </div>
+                        </TabPane>
+                        <TabPane tab='Phim sắp chiếu' key='2'>
+                            <div className='container'>
+                                <Row gutter={[24, 24]}
+                                     justify="center"
+                                     align="middle">
+                                    {elementMovie}
+                                </Row>
+                            </div>
+                        </TabPane>
+                    </Tabs>
+                </Element>
+
 
             </StyledList>
         );

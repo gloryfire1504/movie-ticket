@@ -124,3 +124,17 @@ V
 &src/services/AdminLogin/actionTypes.js,b/e/bebb779700422012ee64cb105e22115a3e5ee0ab
 Q
 !src/services/AdminLogin/action.js,3/4/34fcfe7acfbe6f688d0defd4afb876252f887735
+T
+$src/services/Register/actionTypes.js,c/0/c0583aa188cbbbf9da04408e4a067bb7d15939da
+P
+ src/services/Register/reducer.js,2/0/2085a7e66b08fa93e988568267d404b674c019d2
+O
+src/services/Register/action.js,8/8/8851369448200520864506879730279d69885506
+D
+public/manifest.json,4/2/42e89cd2213b9d5dfae4f63522702c623170d792
+A
+public/robots.txt,d/a/dac799070c2d0c2fa24462b02c1f2dcc3fb3a1e9
+O
+src/components/Banner/styled.js,4/c/4c676e1c62005d93423d607ff9b7438d4095e423
+A
+public/index.html,f/4/f43ecdf8d666ee908aacce037b4cd72159e4741b

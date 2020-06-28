@@ -2,6 +2,7 @@ import Home from "./pages/Home";
 import MovieDetail from "./components/MovieDetail";
 import BookingSeat from "./components/BookingSeat";
 import Register from "./components/Register";
+import ListMovie from "./components/ListMovie";
 
 const routesHome = [
     {
@@ -29,6 +30,12 @@ const routesHome = [
         exact: false,
         component: Register,
     },
+    {
+        path: "/list-movie",
+        exact: true,
+        component: ListMovie,
+    },
+
 
 ]
 

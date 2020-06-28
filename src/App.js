@@ -14,6 +14,16 @@ import DashBoard from "./components/DashBoard";
 import AdminLogin from "./components/AdminLogin";
 
 class App extends React.Component {
+    // componentDidMount() {
+    //     let myLoading = document.getElementById('myLoading')
+    //     setTimeout(myLoading.style.display = 'none', 2000)
+    // }
+    //
+    // componentWillUnmount() {
+    //     let myLoading = document.getElementById('myLoading')
+    //     myLoading.style.display = 'block'
+    // }
+
     render() {
         const {authenticate, userType} = this.props
         let showMenuHome = (routes) => {

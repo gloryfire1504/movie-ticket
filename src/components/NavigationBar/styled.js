@@ -9,13 +9,13 @@ export const NavBar = styled.nav`
       color: whitesmoke;
 
       &:hover {
-        color: seagreen !important;
+        color: red !important;
       }
     }
   }
 
   .navbar-secondary {
-  
+
     & a {
       align-items: center;
 
@@ -32,5 +32,19 @@ export const NavBar = styled.nav`
 
   .activeNavLink {
     color: red !important;
+  }
+
+  .normalItem {
+    color: white;
+
+    &:hover {
+      color: green!important;
+    }
+  }
+  .actived-item{
+  color: red!important;
+  }
+  .some-active-class{
+  color: red!important;
   }
 `

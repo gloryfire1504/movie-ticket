@@ -6,17 +6,21 @@ import {UserOutlined} from "@ant-design/icons";
 import {StyledLogResis} from "./styled";
 
 class LogResis extends Component {
-    handleOnClick = () => {
-
-    }
+    // handleOnClick = () => {
+    //
+    // }
 
     render() {
         return (
-            <StyledLogResis >
+            <StyledLogResis>
                 <div className="row align-items-center justify-content-between navbar-secondary">
                     <Link to='/login'>
-                        <Button type="primary" shape="round" icon={<UserOutlined/>} size={"large"}>
-                            Đăng nhập
+                        <Button style={{display: 'flex', alignItems: 'center'}}
+                                type="primary"
+                                shape="round"
+                                icon={<UserOutlined/>}
+                                size={"large"}
+                        >Đăng nhập
                         </Button>
                     </Link>
                     <Link to='/register'>

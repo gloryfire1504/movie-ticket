@@ -1,46 +1,97 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import _ from 'lodash'
+import {Tooltip} from 'antd'
 
 class SeatRow extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            maLichChieu: 0,
             danhSachVe: [],
+            taiKhoanNguoiDung: '',
+            mySeatName: ''
         }
     }
 
-    handleOnclick = (e) => {
+    handleOnclick = (e, item) => {
+        //Toggle seat color
         if (e.target.style.backgroundColor === 'lightgrey') {
             e.target.style.backgroundColor = 'green'
+            //Set danh sach ghe
+            let seat = {
+                maGhe: item.maGhe,
+                giaVe: item.giaVe
+            }
+            this.setState({
+                danhSachVe: this.state.danhSachVe.concat(seat),
+                taiKhoanNguoiDung: this.props.user.taiKhoan,
+            }, () => {
+                console.log(this.state)
+            })
         } else {
             e.target.style.backgroundColor = 'lightgrey'
+        }
+        //Toggle input children click
+        let Children = e.target.children;
+        for (let i = 0; i < Children.length; i++) {
+            if (Children[i].className === 'myCheckSeat') {
+                // console.log(inputChildren[i])
+                Children[i].click()
+            }
+        }
+
+
+        //Set maLichChieu
+        let {maLichChieu} = this.props.filmDetail
+        if (maLichChieu) {
+            this.setState({
+                maLichChieu
+            }, () => {
+                console.log(this.state.maLichChieu)
+            })
+        }
+
+
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.orderedTicket) {
+            prevProps.orderedTicket(prevState)
         }
     }
 
 
     renderSeatRow = () => {
+        // let {maLichChieu} = this.props.filmDetail
         let seatRowGroup = _.chunk(this.props.SeatList, 16)
         if (seatRowGroup) {
             return seatRowGroup.map((items, index) => {
+                // console.log(maLichChieu)
                 return (
                     <tr key={index}>
                         <td>{index + 1}</td>
-                        {items.map((item,index) => {
+                        {items.map((item, index) => {
+                            // console.log(item)
                             return (<td key={index}>
-                                <div style={{
-                                    backgroundColor: `${item.daDat ? 'red' : 'lightgrey'}`,
-                                    pointerEvents: `${item.daDat ? 'none' : 'auto'}`
-                                }}
-                                     className={'seat-status'}
-                                     onClick={
-                                         this.handleOnclick
-                                     }
-                                     name='maGhe'
-                                     value={item.maGhe}
-                                >
-                                </div>
-                            </td>)
+                                    <Tooltip mouseLeaveDelay={0} placement="top" title={item.giaVe + ' VND'}>
+                                        <div style={{
+                                            backgroundColor: `${item.daDat ? 'red' : 'lightgrey'}`,
+                                            pointerEvents: `${item.daDat ? 'none' : 'auto'}`
+                                        }}
+                                             className={'seat-status'}
+                                             onClick={(e) => {
+                                                 this.handleOnclick(e, (e ? item : null))
+                                             }}
+                                             name='maGhe'
+                                             value={item.maGhe}
+                                        >
+                                            <input style={{visibility: 'hidden'}} className={'myCheckSeat'}
+                                                   type={'checkbox'}/>
+                                        </div>
+                                    </Tooltip>
+                                </td>
+                            )
                         })}
                     </tr>
                 )
@@ -49,6 +100,8 @@ class SeatRow extends Component {
     }
 
     render() {
+        // this.props.orderedTicket(this.state)
+        // console.log(this.props)
         return (
             <React.Fragment>
                 {this.renderSeatRow()}
@@ -60,7 +113,9 @@ class SeatRow extends Component {
 const
     mapStateToProps = (state) => {
         return {
-            SeatList: state.BookingSeatReducer.danhSachGhe
+            SeatList: state.BookingSeatReducer.danhSachGhe,
+            filmDetail: state.BookingSeatReducer.thongTinPhim,
+            user: state.LoginReducer.userDetail
         }
     }
 export default connect(mapStateToProps, null)(SeatRow);
