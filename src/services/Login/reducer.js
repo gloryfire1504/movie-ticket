@@ -2,7 +2,7 @@ import {LOG_IN, LOG_OUT} from "../Login/actionTypes";
 import jwtDecode from 'jwt-decode';
 
 let initialState = {
-    userDetail:{},
+    userDetail: {},
     user: {},
     authenticate: false,
     userType: '',
@@ -13,7 +13,7 @@ const LoginReducer = (state = initialState, action) => {
         case LOG_IN:
             localStorage.setItem('auth', JSON.stringify(action.data));
             return {
-                userDetail:action.data,
+                userDetail: action.data,
                 user: jwtDecode(action.data.accessToken),
                 authenticate: true,
                 userType: action.data.maLoaiNguoiDung

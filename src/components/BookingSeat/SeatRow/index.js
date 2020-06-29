@@ -27,8 +27,9 @@ class SeatRow extends Component {
                 danhSachVe: this.state.danhSachVe.concat(seat),
                 taiKhoanNguoiDung: this.props.user.taiKhoan,
             }, () => {
-                console.log(this.state)
+                this.props.orderedTicket(this.state)
             })
+
         } else {
             e.target.style.backgroundColor = 'lightgrey'
         }
@@ -51,16 +52,7 @@ class SeatRow extends Component {
                 console.log(this.state.maLichChieu)
             })
         }
-
-
     }
-
-    componentDidUpdate(prevProps, prevState) {
-        if (prevProps.orderedTicket) {
-            prevProps.orderedTicket(prevState)
-        }
-    }
-
 
     renderSeatRow = () => {
         // let {maLichChieu} = this.props.filmDetail
@@ -101,7 +93,7 @@ class SeatRow extends Component {
 
     render() {
         // this.props.orderedTicket(this.state)
-        // console.log(this.props)
+        console.log(this.props)
         return (
             <React.Fragment>
                 {this.renderSeatRow()}

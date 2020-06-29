@@ -47,4 +47,8 @@ export const NavBar = styled.nav`
   .some-active-class{
   color: red!important;
   }
+  .nav-others{
+  font-weight: 700;
+  font-size: 18px!important;
+  }
 `

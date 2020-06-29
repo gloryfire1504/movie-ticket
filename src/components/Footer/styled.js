@@ -5,7 +5,6 @@ export const FooterStyled = styled.div`
   #footer { 
     @background_color_1: transparent;
     padding: 40px 0;
-
     & h5 {
       padding-left: 10px;
       border-left: 3px solid #eeeeee;

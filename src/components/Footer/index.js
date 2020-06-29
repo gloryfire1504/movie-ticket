@@ -7,67 +7,75 @@ function Footer(props) {
             <section id="footer" className='bg-dark'>
                 <div className="container">
                     <div className="row text-center text-xs-center text-sm-left text-md-left">
-                        <div className="col-xs-12 col-sm-4 col-md-4">
-                            <h5>Quick links</h5>
-                            <ul className="list-unstyled quick-links">
-                                <li>
-                                    <a href="https://www.fiverr.com/share/qb8D02">
-                                        <i className="quick-links-icon fa fa-angle-double-right">
-                                        </i>Home
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.fiverr.com/share/qb8D02">
-                                        <i className="quick-links-icon fa fa-angle-double-right">
-                                        </i>About
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.fiverr.com/share/qb8D02">
-                                        <i className="quick-links-icon fa fa-angle-double-right">
-                                        </i>FAQ</a>
-                                </li>
-                                <li>
-                                    <a href="https://www.fiverr.com/share/qb8D02">
-                                        <i className="quick-links-icon fa fa-angle-double-right">
-                                        </i>Get Started</a>
-                                </li>
-                                <li>
-                                    <a href="https://www.fiverr.com/share/qb8D02">
-                                        <i className="quick-links-icon fa fa-angle-double-right">
-                                        </i>Videos</a>
-                                </li>
-                            </ul>
+                        <div className="d-flex justify-content-start col-xs-12 col-sm-4 col-md-4">
+                            <div>
+                                <h5>Quick links</h5>
+                                <ul className="list-unstyled quick-links">
+                                    <li>
+                                        <a href="https://www.fiverr.com/share/qb8D02">
+                                            <i className="quick-links-icon fa fa-angle-double-right">
+                                            </i>Home
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.fiverr.com/share/qb8D02">
+                                            <i className="quick-links-icon fa fa-angle-double-right">
+                                            </i>About
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.fiverr.com/share/qb8D02">
+                                            <i className="quick-links-icon fa fa-angle-double-right">
+                                            </i>FAQ</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.fiverr.com/share/qb8D02">
+                                            <i className="quick-links-icon fa fa-angle-double-right">
+                                            </i>Get Started</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.fiverr.com/share/qb8D02">
+                                            <i className="quick-links-icon fa fa-angle-double-right">
+                                            </i>Videos</a>
+                                    </li>
+                                </ul>
+                            </div>
+
                         </div>
-                        <div className="col-xs-12 col-sm-4 col-md-4">
-                            <h5>Quick links</h5>
-                            <ul className="list-unstyled quick-links">
-                                <li><a href="https://www.fiverr.com/share/qb8D02"><i
-                                    className="quick-links-icon fa fa-angle-double-right"></i>Home</a></li>
-                                <li><a href="https://www.fiverr.com/share/qb8D02"><i
-                                    className="quick-links-icon fa fa-angle-double-right"></i>About</a></li>
-                                <li><a href="https://www.fiverr.com/share/qb8D02"><i
-                                    className="quick-links-icon fa fa-angle-double-right"></i>FAQ</a></li>
-                                <li><a href="https://www.fiverr.com/share/qb8D02"><i
-                                    className="quick-links-icon fa fa-angle-double-right"></i>Get Started</a></li>
-                                <li><a href="https://www.fiverr.com/share/qb8D02"><i
-                                    className="quick-links-icon fa fa-angle-double-right"></i>Videos</a></li>
-                            </ul>
+                        <div className="d-flex justify-content-center col-xs-12 col-sm-4 col-md-4">
+                            <div>
+                                <h5>Quick links</h5>
+                                <ul className="list-unstyled quick-links">
+                                    <li><a href="https://www.fiverr.com/share/qb8D02"><i
+                                        className="quick-links-icon fa fa-angle-double-right"></i>Home</a></li>
+                                    <li><a href="https://www.fiverr.com/share/qb8D02"><i
+                                        className="quick-links-icon fa fa-angle-double-right"></i>About</a></li>
+                                    <li><a href="https://www.fiverr.com/share/qb8D02"><i
+                                        className="quick-links-icon fa fa-angle-double-right"></i>FAQ</a></li>
+                                    <li><a href="https://www.fiverr.com/share/qb8D02"><i
+                                        className="quick-links-icon fa fa-angle-double-right"></i>Get Started</a></li>
+                                    <li><a href="https://www.fiverr.com/share/qb8D02"><i
+                                        className="quick-links-icon fa fa-angle-double-right"></i>Videos</a></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div className="col-xs-12 col-sm-4 col-md-4">
-                            <h5>Quick links</h5>
-                            <ul className="list-unstyled quick-links">
-                                <li><a href="https://www.fiverr.com/share/qb8D02"><i
-                                    className="quick-links-icon fa fa-angle-double-right"></i>Home</a></li>
-                                <li><a href="https://www.fiverr.com/share/qb8D02"><i
-                                    className="quick-links-icon fa fa-angle-double-right"></i>About</a></li>
-                                <li><a href="https://www.fiverr.com/share/qb8D02"><i
-                                    className="quick-links-icon fa fa-angle-double-right"></i>FAQ</a></li>
-                                <li><a href="https://www.fiverr.com/share/qb8D02"><i
-                                    className="quick-links-icon fa fa-angle-double-right"></i>Get Started</a></li>
-                                <li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i
-                                    className="quick-links-icon fa fa-angle-double-right"></i>Imprint</a></li>
-                            </ul>
+                        <div className="d-flex justify-content-end col-xs-12 col-sm-4 col-md-4">
+                            <div>
+                                <h5>Quick links</h5>
+                                <ul className="list-unstyled quick-links">
+                                    <li><a href="https://www.fiverr.com/share/qb8D02"><i
+                                        className="quick-links-icon fa fa-angle-double-right"></i>Home</a></li>
+                                    <li><a href="https://www.fiverr.com/share/qb8D02"><i
+                                        className="quick-links-icon fa fa-angle-double-right"></i>About</a></li>
+                                    <li><a href="https://www.fiverr.com/share/qb8D02"><i
+                                        className="quick-links-icon fa fa-angle-double-right"></i>FAQ</a></li>
+                                    <li><a href="https://www.fiverr.com/share/qb8D02"><i
+                                        className="quick-links-icon fa fa-angle-double-right"></i>Get Started</a></li>
+                                    <li><a href="https://wwwe.sunlimetech.com" title="Design and developed by"><i
+                                        className="quick-links-icon fa fa-angle-double-right"></i>Imprint</a></li>
+                                </ul>
+                            </div>
+
                         </div>
                     </div>
                     <div className="row">

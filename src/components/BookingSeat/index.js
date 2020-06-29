@@ -12,7 +12,7 @@ class BookingSeat extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            orderedTicket:{}
+            orderedTicket: {}
         }
     }
 
@@ -37,10 +37,16 @@ class BookingSeat extends Component {
 
     setOrderedTicket = (state) => {
         this.setState({
-            orderedTicket:state
+            orderedTicket: state
         }, () => {
-            console.log(this.state.orderedTicket)
+
         })
+    }
+
+
+
+    handleOnclick= () => {
+        console.log(this.state.orderedTicket)
     }
 
     render() {
@@ -124,13 +130,15 @@ class BookingSeat extends Component {
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <SeatRow orderedTicket={this.setOrderedTicket}/>
-
+                                        <SeatRow orderedTicket={(state) => {
+                                            this.setOrderedTicket(state)
+                                        }}/>
                                         </tbody>
                                     </table>
                                 </div>
-
-                                <button onSubmit={this.handleSubmit} type="submit" className="btn btn-success my-3">Xác nhận đặt vé</button>
+                                <button onClick={this.handleOnclick} type="submit" className="btn btn-success my-3">Xác
+                                    nhận đặt vé
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -145,6 +153,7 @@ class BookingSeat extends Component {
 const mapStateToProps = (state) => {
     return {
         filmDetail: state.BookingSeatReducer.thongTinPhim,
+        user:state.LoginReducer.userDetail
 
     }
 }
@@ -152,7 +161,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
         getRoomTicket: (roomTicketCode) => {
             dispatch(actgetRoomTicketAPI(roomTicketCode))
-        }
+        },
+
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(BookingSeat);

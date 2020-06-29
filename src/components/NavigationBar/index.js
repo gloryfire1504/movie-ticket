@@ -33,11 +33,36 @@ let scrollSpy = Scroll.scrollSpy;
 // }
 
 class NavigationBar extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isAuthenticate: false
+        }
+
+    }
+
+    componentDidMount() {
+        if (localStorage.getItem('auth')) {
+            this.setState({
+                isAuthenticate: true
+            })
+        }
+    }
+
+    componentWillReceiveProps(nextProps,) {
+        if (nextProps.authenticate === false) {
+            this.setState({
+                isAuthenticate: false
+            })
+        }
+    }
+
     handleHomeOnclick = () => {
         if (this.props.location.pathname === '/home') {
             window.scrollTo(0, 0)
         } else {
             this.props.history.push('/home')
+            window.scrollTo(0, 0)
         }
 
     }
@@ -46,14 +71,15 @@ class NavigationBar extends Component {
     }
 
     render() {
-        console.log(document.getElementById('list-movie'))
-        console.log(this.props)
-        const {authenticate, location} = this.props;
+        // console.log(document.getElementById('list-movie'))
+        // console.log(this.props)
+        const {location} = this.props;
+        const {isAuthenticate} = this.state
         scrollSpy.update()
         return (
             <NavBar>
                 <nav id='navbar'
-                     className={`navbar navbar-expand-md bg-dark navbar-dark my-0 ${location.pathname === '/home' ? 'fixed-top' : null}`}>
+                     className={`navbar navbar-expand-md bg-dark navbar-dark my-0 ${((location.pathname === '/home' || location.pathname === '/') && isAuthenticate !== '') ? 'fixed-top' : null}`}>
                     <Link onClick={this.handleHomeOnclick}
                           to="/home">
                         <div style={{
@@ -80,7 +106,7 @@ class NavigationBar extends Component {
                             {/*<CustomLink label={'Home'} to={'/'} activeOnlyWhenExact={true}></CustomLink>*/}
                             <li className="nav-item">
                                 {
-                                    (location.pathname === '/home')
+                                    (((location.pathname === '/home' || location.pathname === '/') && isAuthenticate !== ''))
                                         ?
                                         <ScrollLink to="list-movie"
                                                     spy={true}
@@ -89,6 +115,7 @@ class NavigationBar extends Component {
                                                     offset={-60}
                                                     className='nav-others nav-link'
                                                     activeClass='some-active-class'
+
                                         >Danh sách phim
                                         </ScrollLink>
                                         :
@@ -102,12 +129,12 @@ class NavigationBar extends Component {
                             </li>
                             <li className="nav-item">
                                 {
-                                    (location.pathname === '/home')
+                                    (location.pathname === '/home' && isAuthenticate !== null) || (location.pathname === '/' && isAuthenticate !== null)
                                         ?
                                         <ScrollLink to="cinema-cluster"
                                                     spy={true}
                                                     smooth={true}
-                                                    duration={600}
+                                                    duration={500}
                                                     offset={-60}
                                                     className='nav-others nav-link'
                                                     activeClass='some-active-class'
@@ -116,7 +143,7 @@ class NavigationBar extends Component {
                                         :
                                         <a
                                             onClick={this.handleOnclick}
-                                            className="nav-others nav-link"
+                                            className="nav-link"
                                             href='#cinema-cluster'
                                         >
                                             Cụm rạp
@@ -125,7 +152,7 @@ class NavigationBar extends Component {
                             </li>
                         </ul>
                     </div>
-                    {authenticate && authenticate !== '' ? <Logout/> : <LogResis/>}
+                    {isAuthenticate === true ? <Logout/> : <LogResis/>}
                 </nav>
             </NavBar>
         );
