@@ -14,7 +14,7 @@ class Movie extends React.Component {
         this.state = {
             isHover: false,
             idTrailer: '',
-            isOpen: false
+            isOpen: false,
         }
     }
 
@@ -39,15 +39,17 @@ class Movie extends React.Component {
         this.setState({isHover: false}
         )
     }
-
-
+    handleClickCard= () => {
+        
+    }
     render() {
         let {movie} = this.props;
-        let {isHover, trailer} = this.state;
+        let {isHover} = this.state;
         return (
-            <Col span={6}>
+            <Col xs={24} sm={12} md={8} lg={6} xl={6}>
                 <StyledMovie>
-                    <div onMouseEnter={this.hoverOn}
+                    <div onClick={this.handleClickCard}
+                        onMouseEnter={this.hoverOn}
                          onMouseLeave={this.hoverOff}
                          className={'movie-card-wrapper'}>
                         <Card
@@ -57,6 +59,7 @@ class Movie extends React.Component {
                             cover={
                                 <div style={{height: "300px", width: "100%", position: 'relative'}}>
                                     <img
+                                        className={'movie-img'}
                                         style={{height: '100%', width: "100%"}}
                                         alt="example" src={movie.hinhAnh}/>
                                     <div className={'overlay-opacity'}>
@@ -81,6 +84,7 @@ class Movie extends React.Component {
                                         <Link to={`/movie-detail/${movie.maPhim}`}>
                                             <div className='p-2 d-flex justify-content-center'>
                                                 <Button
+
                                                     className='w-100 d-flex justify-content-center align-items-center'
                                                     type="danger" size={"large"}>
                                                     Đặt vé
@@ -99,6 +103,7 @@ class Movie extends React.Component {
                             }
                         </Card>
                     </div>
+
 
                 </StyledMovie>
             </Col>

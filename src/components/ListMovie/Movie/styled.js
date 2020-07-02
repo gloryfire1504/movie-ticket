@@ -8,6 +8,7 @@ export const StyledMovie = styled.div`
       }
 
       & .ant-card-cover {
+
         & .overlay-opacity {
           & .anticon-play-circle {
             display: none;
@@ -51,4 +52,6 @@ export const StyledMovie = styled.div`
       }
     }
   }
+
+  
 `

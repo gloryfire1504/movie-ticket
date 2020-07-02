@@ -1,7 +1,33 @@
 import styled from "styled-components";
 
 export const BannerStyled = styled.div`
-  .banner-img {
-    height: 90vh;
+  @media only screen and (max-width: 576px) {
+    
   }
+  @media only screen and (min-width: 576px) {
+    .banner-img {
+      height: 60vh;
+      & img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    .banner-img {
+      height: 70vh;
+    }
+  }
+  @media only screen and (min-width: 1600px) {
+    .banner-img {
+      height: 80vh;
+      & img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+
+
+  
 `

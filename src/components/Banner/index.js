@@ -8,37 +8,31 @@ import img3 from '../../assets/images/Banner/deadpool-2.jpg'
 const Banner = (props) => {
     return (
         <BannerStyled
-            className="carousel"
-            data-ride="carousel"
         >
-            <Carousel autoplay
-            dots={false}>
-                <div>
-                    <h3>
-                        <img
-                            style={{height: '90vh'}}
-                            className={'w-100'}
-                            src={img1}
-                            alt="First slide"/>
-                    </h3>
+            <Carousel
+                autoplay
+                dots={false}>
+                <div className='banner-img'>
+                    <img
+                        // style={{height: '90vh'}}
+                        className={'w-100'}
+                        src={img1}
+                        alt="First slide"/>
                 </div>
-                <div>
-                    <h3>
-                        <img
-                            style={{height: '90vh'}}
-                            className={'w-100'}
-                            src={img2}
-                            alt="Second slide"/>
-                    </h3>
+                <div className='banner-img'>
+                    <img
+                        // style={{height: '90vh'}}
+                        className={'w-100'}
+                        src={img2}
+                        alt="Second slide"/>
                 </div>
-                <div>
-                    <h3>
-                        <img
-                            style={{height: '90vh'}}
-                            className={'w-100'}
-                            src={img3}
-                            alt="Third slide"/>
-                    </h3>
+                <div className='banner-img'>
+                    <img
+                        // style={{height: '90vh'}}
+                        className={'w-100'}
+                        src={img3}
+                        alt="Third slide"/>
+
                 </div>
             </Carousel>
         </BannerStyled>

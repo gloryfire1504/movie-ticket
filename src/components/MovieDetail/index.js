@@ -69,7 +69,9 @@ class MovieDetail extends React.Component {
                     <div className={'container my-3'}>
                         <div style={{padding: "60px 0"}} className={'row detailMainInfo'}>
                             <div className={'col-6'}>
-                                <img src={movieDetail.hinhAnh} alt=''/>
+                                <div>
+                                    <img src={movieDetail.hinhAnh} alt=''/>
+                                </div>
                             </div>
                             <div className={'col-6'}>
                                 <ul className="list-group list-group-flush">

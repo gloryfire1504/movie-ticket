@@ -11,26 +11,6 @@ import {withRouter} from 'react-router-dom'
 //SCROLL LINK
 const ScrollLink = Scroll.Link;
 let scrollSpy = Scroll.scrollSpy;
-// let Events = Scroll.Events;
-// let scroll = Scroll.animateScroll;
-//CUSTOM LINK
-// const CustomLink = ({label, to, activeOnlyWhenExact}) => {
-//     let match = useRouteMatch({
-//         path: to,
-//         exact: activeOnlyWhenExact,
-//     })
-//     return (
-//         <li className={match ? "nav-item " : 'nav-item'}>
-//             <NavLink
-//                 activeClassName='activeNavLink'
-//                 className="nav-link"
-//                 exact
-//                 to={to}
-//             >{label}
-//             </NavLink>
-//         </li>
-//     )
-// }
 
 class NavigationBar extends Component {
     constructor(props) {
@@ -40,6 +20,22 @@ class NavigationBar extends Component {
         }
     }
 
+    componentDidMount() {
+
+    }
+
+    componentDidUpdate() {
+        let nav = document.getElementById('navbar');
+        let body = document.getElementById('myBody')
+        let navClass = nav.classList;
+        for (let i = 0; i < navClass.length; i++) {
+            if (navClass[i] === 'fixed-top') {
+                body.style.paddingTop = "60px";
+            } else {
+                body.style.paddingTop = "0px";
+            }
+        }
+    }
 
     handleHomeOnclick = () => {
         if (this.props.location.pathname === '/home') {

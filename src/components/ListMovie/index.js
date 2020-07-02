@@ -48,7 +48,7 @@ class ListMovie extends React.Component {
                         <TabPane tab='Phim đang chiếu' key='1'
                         >
                             <div className='container'>
-                                <Row gutter={[24, 24]}
+                                <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 },{ xs: 8, sm: 16, md: 24, lg: 32 }]}
                                      justify="center"
                                      align="middle">
                                     {elementMovie}
@@ -57,7 +57,7 @@ class ListMovie extends React.Component {
                         </TabPane>
                         <TabPane tab='Phim sắp chiếu' key='2'>
                             <div className='container'>
-                                <Row gutter={[24, 24]}
+                                <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
                                      justify="center"
                                      align="middle">
                                     {elementMovie}

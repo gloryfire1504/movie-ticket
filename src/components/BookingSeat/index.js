@@ -86,9 +86,6 @@ class BookingSeat extends Component {
                             <div className='detail-holder'>
                                 <div className={'seat-film-detail'}>
                                     <div>
-                                        img
-                                    </div>
-                                    <div>
                                         <ul className="text-left list-group">
                                             <li className="list-group-item">
                                                 <b>Tên phim: </b><span>{tenPhim}</span>

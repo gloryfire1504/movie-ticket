@@ -50,7 +50,7 @@ class CinemaCluster extends Component {
                     style={{cursor: 'pointer',}}
                     className={`${index === 0 ? this.state.activeClassName : ''} listCuster h-100 d-flex justify-content-start align-items-center list-group-item list-group-item-action`}>
                     <img style={{pointerEvents: 'none'}} className='cluster-logo' src={item.logo} alt=''/>
-                    <span style={{pointerEvents: 'none'}} className='ml-3'>{item.tenHeThongRap}</span>
+                    <span style={{pointerEvents: 'none'}} className='ml-3 system-name'>{item.tenHeThongRap}</span>
                 </li>
             )
         })
