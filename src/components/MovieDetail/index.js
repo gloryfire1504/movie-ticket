@@ -4,6 +4,7 @@ import {getDetailMovieAPI} from "../../services/MovieDetail/action";
 import {connect} from "react-redux";
 import NavigationBar from "../NavigationBar";
 import {Link} from "react-router-dom";
+import BgDetailMovie from '../../assets/images/bg-detail-movie.jpg'
 
 class MovieDetail extends React.Component {
     constructor(props) {
@@ -63,35 +64,46 @@ class MovieDetail extends React.Component {
         let {movieDetail} = this.state;
         // console.log(movieDetail)
         return (
+
             <StyledMovieDetail>
                 <NavigationBar/>
                 <div className='detail-wrapper'>
-                    <div className={'container my-3'}>
-                        <div style={{padding: "60px 0"}} className={'row detailMainInfo'}>
-                            <div className={'col-6'}>
-                                <div>
-                                    <img src={movieDetail.hinhAnh} alt=''/>
+                    <div style={{
+                        width: '100%',
+                        height:"80vh",
+                        backgroundImage: `url(${BgDetailMovie})`,
+                        backgroundSize: "cover",
+                        display:"flex",
+                        justifyContent:"center",
+                        alignItems:"center",
+                    }}>
+                        <div className={'container mt-0 mb-3'}>
+                            <div style={{padding: "60px 0"}} className={'row detailMainInfo'}>
+                                <div className={'col-6'}>
+                                    <div>
+                                        <img src={movieDetail.hinhAnh} alt=''/>
+                                    </div>
+                                </div>
+                                <div className={'col-6'}>
+                                    <ul className="list-group list-group-flush">
+                                        <li className="list-group-item text-left">
+                                            <b>Tên Phim: </b><span>{movieDetail.tenPhim}</span>
+                                        </li>
+                                        <li className="list-group-item text-left">
+                                            <b>Ngày khởi chiếu: </b><span>{movieDetail.ngayKhoiChieu}</span>
+                                        </li>
+                                        <li className="list-group-item text-left">
+                                            <b>Đánh giá: </b><span>{movieDetail.danhGia}</span>
+                                        </li>
+                                        <li className="list-group-item text-left">
+                                            <b>Mô tả: </b><span>{movieDetail.moTa}</span>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-                            <div className={'col-6'}>
-                                <ul className="list-group list-group-flush">
-                                    <li className="list-group-item text-left">
-                                        <b>Tên Phim: </b><span>{movieDetail.tenPhim}</span>
-                                    </li>
-                                    <li className="list-group-item text-left">
-                                        <b>Ngày khởi chiếu: </b><span>{movieDetail.ngayKhoiChieu}</span>
-                                    </li>
-                                    <li className="list-group-item text-left">
-                                        <b>Đánh giá: </b><span>{movieDetail.danhGia}</span>
-                                    </li>
-                                    <li className="list-group-item text-left">
-                                        <b>Mô tả: </b><span>{movieDetail.moTa}</span>
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
-                        <div className='detailDown'></div>
                     </div>
+
                     <div className='container'>
                         <table className="table table-hover">
                             <thead>
