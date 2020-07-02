@@ -31,7 +31,7 @@ class NavigationBar extends Component {
         for (let i = 0; i < navClass.length; i++) {
             if (navClass[i] === 'fixed-top') {
                 body.style.paddingTop = "60px";
-            } else {
+            } if (navClass[i] !== 'fixed-top') {
                 body.style.paddingTop = "0px";
             }
         }
