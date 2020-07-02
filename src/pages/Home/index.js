@@ -28,6 +28,7 @@ class Home extends React.Component {
         myLoading.style.display = 'flex'
         let myBody = document.getElementById('myBody')
         myBody.style.paddingTop = "0px";
+        // myBody.scrollTo(0, 0)
     }
 
     // constructor(props) {
@@ -35,11 +36,6 @@ class Home extends React.Component {
     //     this.myRef = React.createRef();
     // }
     //
-    // componentDidMount() {
-    //     console.log(this.myRef.current)
-    //     // this.myRef.current.scrollTo(0,0);
-    //     window.scrollTo(0, 0)
-    // }
 
     render() {
         return (

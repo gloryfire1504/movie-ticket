@@ -15,15 +15,13 @@ let scrollSpy = Scroll.scrollSpy;
 class NavigationBar extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            // isAuthenticate: false
-        }
+        this.state = {};
+        this.myNavBar = React.createRef()
     }
 
 
-
     handleHomeOnclick = () => {
-        if (this.props.location.pathname === '/home'||this.props.location.pathname === '/') {
+        if (this.props.location.pathname === '/home' || this.props.location.pathname === '/') {
             window.scrollTo(0, 0)
         } else {
             this.props.history.push('/home')
@@ -33,6 +31,7 @@ class NavigationBar extends Component {
     handleOnclick = () => {
         this.props.history.push('/home')
     }
+
     render() {
         // console.log(document.getElementById('list-movie'))
         // console.log(this.props)
@@ -40,7 +39,7 @@ class NavigationBar extends Component {
         const {authenticate} = this.props
         scrollSpy.update()
         return (
-            <NavBar style={{width: "100%"}}>
+            <NavBar ref={this.myNavBar} style={{width: "100%"}}>
                 <nav id='navbar'
                      className={`navbar navbar-expand bg-dark navbar-dark my-0 ${((location.pathname === '/home' || location.pathname === '/') && authenticate !== '') ? 'fixed-top' : null}`}>
                     {/* Toggler/collapsibe Button */}

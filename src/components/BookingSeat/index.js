@@ -23,7 +23,7 @@ class BookingSeat extends Component {
         }
     }
     componentDidMount() {
-        // console.log(typeof this.props.match.params.maLichChieu)
+        window.scrollTo(0, 0)
         setTimeout(() => {
             let myLoading = document.getElementById('myLoading')
             myLoading.style.display = 'none';
