@@ -12,12 +12,16 @@ import {routesHome} from "./routes";
 import {connect} from 'react-redux'
 import DashBoard from "./components/DashBoard";
 import AdminLogin from "./components/AdminLogin";
+import {logIn} from "./services/Login/action";
 
 class App extends React.Component {
-    // componentDidMount() {
-    //     let myLoading = document.getElementById('myLoading')
-    //     setTimeout(myLoading.style.display = 'none', 2000)
-    // }
+    componentDidMount() {
+        let auth = JSON.parse(localStorage.getItem('auth'))
+        if (auth) {
+            this.props.postUser(auth)
+        }
+    }
+
     //
     // componentWillUnmount() {
     //     let myLoading = document.getElementById('myLoading')
@@ -44,7 +48,7 @@ class App extends React.Component {
                 <div className="App">
                     <Switch>
                         {showMenuHome(routesHome)}
-                        <Route path={'/login'} exact={false} component={Login}/>
+                        <Route path={'/login/:param'} exact={false} component={Login}/>
                         <Route path={'/admin'} exact={true} component={AdminLogin}/>
                         <Route path={'/admin/dashboard'} exact={false}
                                component={authenticate && userType === 'QuanTri' ? DashBoard : NotFound}
@@ -66,4 +70,12 @@ const mapStateToProps = (state) => {
         userType: state.AdminLoginReducer.userType
     }
 }
-export default connect(mapStateToProps, null)(App);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        postUser: (data) => {
+            dispatch(logIn(data))
+        }
+    }
+
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);

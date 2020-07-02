@@ -1,20 +1,18 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import {Button} from "antd";
 import {UserOutlined} from "@ant-design/icons";
 import {StyledLogResis} from "./styled";
 
 class LogResis extends Component {
-    // handleOnClick = () => {
-    //
-    // }
-
     render() {
+        const {maLichChieu} = this.props.filmDetail
         return (
             <StyledLogResis>
-                <div className="row align-items-center justify-content-between navbar-secondary">
-                    <Link to='/login'>
+                <div style={{display:'flex'}} className="align-items-center justify-content-between">
+                    <Link
+                        to={this.props.history.location.pathname.indexOf('/booking-seat') !== -1 ? `/login/${maLichChieu}` : `/login/${'a'}`}>
                         <Button style={{display: 'flex', alignItems: 'center'}}
                                 type="primary"
                                 shape="round"
@@ -34,4 +32,9 @@ class LogResis extends Component {
     }
 }
 
-export default connect(null, null)(LogResis);
+const mapStateToProps = (state) => {
+    return {
+        filmDetail: state.BookingSeatReducer.thongTinPhim,
+    }
+}
+export default withRouter(connect(mapStateToProps, null)(LogResis));

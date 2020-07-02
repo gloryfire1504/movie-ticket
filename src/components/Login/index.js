@@ -14,14 +14,18 @@ class Login extends Component {
         super(props);
         this.state = {
             authenticate: false,
-            isLoadingScreen:false
+            isLoadingScreen: false,
         }
     }
 
     static getDerivedStateFromProps(nextProps, prevState) {
+        console.log(nextProps.match.params.param)
         let {authenticate} = prevState;
         if (nextProps.user.authenticate && nextProps.user.userType === 'KhachHang') {
             nextProps.history.push('/');
+            if (nextProps.match.params.param !== 'a') {
+                nextProps.history.push(`/booking-seat/${nextProps.match.params.param}`);
+            }
         }
         if (nextProps.user.authenticate !== authenticate) {
             return {authenticate: nextProps.user.authenticate};
@@ -29,6 +33,7 @@ class Login extends Component {
     }
 
     componentDidMount() {
+
         setTimeout(() => {
             let myLoading = document.getElementById('myLoading')
             myLoading.style.display = 'none';
@@ -41,7 +46,7 @@ class Login extends Component {
     }
 
     render() {
-        // console.log(this.props)
+        console.log(this.state.maLichChieu)
         //Get props from formik
         let {
             errors,
@@ -156,6 +161,7 @@ const LoginFormik = withFormik({
             data: values
         }).then((response) => {
             props.postUser(response.data)
+
         }).catch((error) => {
             setSubmitting(false)
             setFieldError('taiKhoan', error.response.data)

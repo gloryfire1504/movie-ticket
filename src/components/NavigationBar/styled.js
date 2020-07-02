@@ -1,9 +1,15 @@
 import styled from "styled-components";
 
-export const NavBar = styled.nav`
+export const NavBar = styled.div`
+#navbar{
+//width: 100%;
+height: 60px;
+//overflow-x: hidden;
+
+}
   .navbar-collapse {
     justify-content: center;
-
+overflow: visible !important;
     & .nav-link {
       font-size: 1rem;
       color: whitesmoke;

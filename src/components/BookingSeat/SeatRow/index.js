@@ -14,6 +14,14 @@ class SeatRow extends Component {
         }
     }
 
+    UNSAFE_componentWillReceiveProps(nextProps, nextContext) {
+        if (nextProps.user) {
+            this.setState({
+                taiKhoanNguoiDung: nextProps.user.taiKhoan
+            })
+        }
+    }
+
     handleOnclick = (e, item) => {
         //Toggle seat color
         if (e.target.style.backgroundColor === 'lightgrey') {
@@ -25,11 +33,9 @@ class SeatRow extends Component {
             }
             this.setState({
                 danhSachVe: this.state.danhSachVe.concat(seat),
-                taiKhoanNguoiDung: this.props.user.taiKhoan,
             }, () => {
                 this.props.orderedTicket(this.state)
             })
-
         } else {
             e.target.style.backgroundColor = 'lightgrey'
         }
@@ -93,7 +99,7 @@ class SeatRow extends Component {
 
     render() {
         // this.props.orderedTicket(this.state)
-        console.log(this.props)
+        // console.log(this.props)
         return (
             <React.Fragment>
                 {this.renderSeatRow()}

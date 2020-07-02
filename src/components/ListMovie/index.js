@@ -23,7 +23,7 @@ class ListMovie extends React.Component {
         this.setState({
             divListMovie
         }, () => {
-            console.log(this.state)
+            // console.log(this.state)
         })
     }
 

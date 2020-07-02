@@ -1,10 +1,10 @@
 import styled from "styled-components"
 
 export const StyledRegister = styled.div`
+padding-top: 3%;
 
   .register {
     background: -webkit-linear-gradient(left, #3931af, #00c6ff);
-    margin-top: 3%;
     padding: 3%;
   }
 
@@ -127,10 +127,12 @@ export const StyledRegister = styled.div`
     color: #495057;
   }
   .btnLogin{
+  margin-top: 39%!important;
   &:hover{
   background-color: #9C9B99;
   border-color: #9C9B99;
   color: white;
+  
   }
   }
 `

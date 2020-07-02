@@ -12,6 +12,20 @@ import {actRegister} from "../../services/Register/action";
 const FormItem = Form.Item;
 
 class Register extends Component {
+    componentDidMount() {
+        setTimeout(() => {
+            let myLoading = document.getElementById('myLoading')
+            myLoading.style.display = 'none';
+            this.setState({
+                isLoadingScreen: false
+            })
+        }, 2000)
+    }
+
+    componentWillUnmount() {
+        let myLoading = document.getElementById('myLoading')
+        myLoading.style.display = 'flex'
+    }
     render() {
         //Destructuring from this.props
         const {

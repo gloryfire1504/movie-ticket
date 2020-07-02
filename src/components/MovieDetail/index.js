@@ -19,7 +19,7 @@ class MovieDetail extends React.Component {
             let myLoading = document.getElementById('myLoading')
             myLoading.style.display = 'none';
             this.setState({
-                isLoadingScreen:false
+                isLoadingScreen: false
             })
         }, 2000)
         this.props.getDetailMovie(this.props.match.params.id)
@@ -39,9 +39,9 @@ class MovieDetail extends React.Component {
     renderShowTimes = () => {
         const {movieDetail} = this.state
         if (movieDetail.lichChieu) {
-            return movieDetail.lichChieu.map((item) => {
+            return movieDetail.lichChieu.map((item, index) => {
                 return (
-                    <tr>
+                    <tr key={index}>
                         <td className='text-left'>{item.thongTinRap.tenCumRap}</td>
                         <td>{item.thongTinRap.tenRap}</td>
                         <td>{new Date(item.ngayChieuGioChieu).toLocaleDateString()}</td>
@@ -61,13 +61,13 @@ class MovieDetail extends React.Component {
 
     render() {
         let {movieDetail} = this.state;
-        console.log(movieDetail)
+        // console.log(movieDetail)
         return (
             <StyledMovieDetail>
                 <NavigationBar/>
                 <div className='detail-wrapper'>
                     <div className={'container my-3'}>
-                        <div style={{padding:"60px 0"}} className={'row detailMainInfo'}>
+                        <div style={{padding: "60px 0"}} className={'row detailMainInfo'}>
                             <div className={'col-6'}>
                                 <img src={movieDetail.hinhAnh} alt=''/>
                             </div>

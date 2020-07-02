@@ -1,22 +1,29 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {actgetRoomTicketAPI} from "../../services/BookingSeat/action";
+import {withRouter} from 'react-router-dom'
+import {actgetRoomTicketAPI, actSubmitBooking} from "../../services/BookingSeat/action";
 import SeatRow from "./SeatRow";
 import {StyledBookingSeat} from "./styled";
 import NavigationBar from "../NavigationBar";
 import Footer from "../Footer";
 import WrapperImage from '../../assets/images/Banner/banner.jpg'
-import {logOut} from "../../services/Login/action";
+// import {logOut} from "../../services/Login/action";
 
 class BookingSeat extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            orderedTicket: {}
+            orderedTicket: {},
+            getRoomTicket: () => {
+                const {maLichChieu} = this.props.match.params;
+                this.props.getRoomTicket(maLichChieu)
+            },
+            maLichChieu: this.props.match.params.maLichChieu,
+            accessToken: '',
         }
     }
-
     componentDidMount() {
+        // console.log(typeof this.props.match.params.maLichChieu)
         setTimeout(() => {
             let myLoading = document.getElementById('myLoading')
             myLoading.style.display = 'none';
@@ -24,11 +31,24 @@ class BookingSeat extends Component {
                 isLoadingScreen: false
             })
         }, 2000)
-
-        const {maLichChieu} = this.props.match.params;
-        this.props.getRoomTicket(maLichChieu)
+        this.state.getRoomTicket()
     }
 
+    UNSAFE_componentWillReceiveProps(nextProps) {
+        // console.log(nextProps)
+        if (nextProps.isBookingSuccess) {
+            this.state.getRoomTicket()
+        }
+        if (nextProps.user.accessToken !== '') {
+            this.setState({
+                accessToken: nextProps.user.accessToken
+            })
+        }else{
+            this.setState({
+                accessToken:''
+            })
+        }
+    }
 
     componentWillUnmount() {
         let myLoading = document.getElementById('myLoading')
@@ -39,19 +59,22 @@ class BookingSeat extends Component {
         this.setState({
             orderedTicket: state
         }, () => {
-
         })
     }
 
 
-
-    handleOnclick= () => {
-        console.log(this.state.orderedTicket)
+    handleOnclick = () => {
+        let {orderedTicket, accessToken} = this.state
+        if (orderedTicket&& accessToken) {
+            this.props.actSubmitBooking(this.state.orderedTicket, this.props.user.accessToken)
+        } else {
+            this.props.history.push(`/login/${this.props.history.location.pathname.indexOf('/booking-seat') !== -1 ? this.state.maLichChieu : 'a'}`)
+        }
     }
 
     render() {
         let {tenPhim, tenCumRap, diaChi, tenRap, ngayChieu, gioChieu} = this.props.filmDetail
-        const orderedTicket = {}
+
         return (
             <StyledBookingSeat>
                 <NavigationBar/>
@@ -153,8 +176,8 @@ class BookingSeat extends Component {
 const mapStateToProps = (state) => {
     return {
         filmDetail: state.BookingSeatReducer.thongTinPhim,
-        user:state.LoginReducer.userDetail
-
+        user: state.LoginReducer.userDetail,
+        isBookingSuccess: state.BookingSeatReducer.isBookingSuccess
     }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -162,7 +185,10 @@ const mapDispatchToProps = (dispatch) => {
         getRoomTicket: (roomTicketCode) => {
             dispatch(actgetRoomTicketAPI(roomTicketCode))
         },
+        actSubmitBooking: (bookingInfo, accessToken) => {
+            dispatch(actSubmitBooking(bookingInfo, accessToken))
+        }
 
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(BookingSeat);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BookingSeat));

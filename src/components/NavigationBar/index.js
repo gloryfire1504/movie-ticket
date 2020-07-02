@@ -4,7 +4,7 @@ import Logout from "./Logout";
 import {connect} from 'react-redux'
 import {Link,} from "react-router-dom";
 import * as Scroll from 'react-scroll'
-import {BackTop} from 'antd'
+// import {BackTop} from 'antd'
 import {NavBar} from "./styled";
 import chillIcon from '../../assets/images/Icon/chill-icon-0.jpg'
 import {withRouter} from 'react-router-dom'
@@ -36,26 +36,10 @@ class NavigationBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isAuthenticate: false
-        }
-
-    }
-
-    componentDidMount() {
-        if (localStorage.getItem('auth')) {
-            this.setState({
-                isAuthenticate: true
-            })
+            // isAuthenticate: false
         }
     }
 
-    componentWillReceiveProps(nextProps,) {
-        if (nextProps.authenticate === false) {
-            this.setState({
-                isAuthenticate: false
-            })
-        }
-    }
 
     handleHomeOnclick = () => {
         if (this.props.location.pathname === '/home') {
@@ -74,24 +58,12 @@ class NavigationBar extends Component {
         // console.log(document.getElementById('list-movie'))
         // console.log(this.props)
         const {location} = this.props;
-        const {isAuthenticate} = this.state
+        const {authenticate} = this.props
         scrollSpy.update()
         return (
-            <NavBar>
+            <NavBar style={{width: "100%"}}>
                 <nav id='navbar'
-                     className={`navbar navbar-expand-md bg-dark navbar-dark my-0 ${((location.pathname === '/home' || location.pathname === '/') && isAuthenticate !== '') ? 'fixed-top' : null}`}>
-                    <Link onClick={this.handleHomeOnclick}
-                          to="/home">
-                        <div style={{
-                            backgroundImage: `url(${chillIcon})`,
-                            backgroundSize: 'cover',
-                            width: "45px",
-                            height: "45px",
-                            cursor: 'pointer'
-                        }}
-                        >
-                        </div>
-                    </Link>
+                     className={`navbar navbar-expand bg-dark navbar-dark my-0 ${((location.pathname === '/home' || location.pathname === '/') && authenticate !== '') ? 'fixed-top' : null}`}>
                     {/* Toggler/collapsibe Button */}
                     <button
                         className="navbar-toggler"
@@ -101,12 +73,39 @@ class NavigationBar extends Component {
                         <span className="navbar-toggler-icon"/>
                     </button>
                     {/* Navbar links */}
-                    <div className="collapse navbar-collapse " id="collapsibleNavbar">
-                        <ul className="navbar-nav">
+                    <div style={{
+                        position: "relative"
+                    }} className="collapse navbar-collapse " id="collapsibleNavbar">
+                        <div style={{
+                            position: "absolute",
+                            left: 0,
+                        }}>
+                            <Link onClick={this.handleHomeOnclick}
+                                  to="/home">
+                                <div style={{
+                                    backgroundImage: `url(${chillIcon})`,
+                                    backgroundSize: 'cover',
+                                    width: "45px",
+                                    height: "45px",
+                                    cursor: 'pointer'
+                                }}
+                                >
+                                </div>
+                            </Link>
+                        </div>
+                        <ul style={{
+                            position: "absolute",
+                            top: 0,
+                            left: 0,
+                            width: "100%",
+                            height: "100%",
+                            justifyContent: "center",
+                            alignItems: "center"
+                        }} className="navbar-nav">
                             {/*<CustomLink label={'Home'} to={'/'} activeOnlyWhenExact={true}></CustomLink>*/}
                             <li className="nav-item">
                                 {
-                                    (((location.pathname === '/home' || location.pathname === '/') && isAuthenticate !== ''))
+                                    (((location.pathname === '/home' || location.pathname === '/') && authenticate !== ''))
                                         ?
                                         <ScrollLink to="list-movie"
                                                     spy={true}
@@ -129,7 +128,7 @@ class NavigationBar extends Component {
                             </li>
                             <li className="nav-item">
                                 {
-                                    (location.pathname === '/home' && isAuthenticate !== null) || (location.pathname === '/' && isAuthenticate !== null)
+                                    (location.pathname === '/home' && authenticate !== null) || (location.pathname === '/' && authenticate !== null)
                                         ?
                                         <ScrollLink to="cinema-cluster"
                                                     spy={true}
@@ -151,9 +150,16 @@ class NavigationBar extends Component {
                                 }
                             </li>
                         </ul>
+                        <div style={{
+                            position: "absolute",
+                            right: 0,
+                        }}>
+                            {authenticate ? <Logout/> : <LogResis/>}
+                        </div>
                     </div>
-                    {isAuthenticate === true ? <Logout/> : <LogResis/>}
                 </nav>
+
+
             </NavBar>
         );
     }

@@ -6,8 +6,12 @@ export const getListMovieAPI = () => {
         Axios({
             method: "GET",
             url: "http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP06",
+            headers: {
+                withCredentials: true
+            }
         })
             .then((response) => {
+
                 dispatch(
                     {
                         type: ActionTypes.GET_LIST_MOVIE,

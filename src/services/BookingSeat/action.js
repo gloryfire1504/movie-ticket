@@ -18,3 +18,26 @@ export const actgetRoomTicketAPI = (roomTicketCode) => {
     }
 }
 //END LAY DANH SACH PHONG VE
+//SUBMIT BOOKING
+export const actSubmitBooking = (bookingInfo, accessToken) => {
+    return (dispatch) => {
+        Axios({
+            method: "POST",
+            url: "http://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/DatVe",
+            data: bookingInfo,
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            }
+        }).then((response) => {
+            console.log(response.data)
+            if (response.data) {
+                dispatch({
+                    type: ActionTypes.ACT_SUBMIT_BOOKING,
+                    data: response.data
+                })
+            }
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
+}

@@ -21,6 +21,7 @@ const LoginReducer = (state = initialState, action) => {
         case LOG_OUT:
             localStorage.removeItem('auth')
             return {
+                userDetail: {},
                 user: {},
                 authenticate: false,
                 userType: ''

@@ -4,7 +4,7 @@ import Banner from "../../components/Banner";
 import ListMovie from "../../components/ListMovie";
 import CinemaCluster from "../../components/CinemaCluster";
 import Footer from "../../components/Footer";
-import {BackTop,Button} from 'antd'
+// import {BackTop,Button} from 'antd'
 class Home extends React.Component {
     componentDidMount() {
         setTimeout(() => {

@@ -12,8 +12,9 @@ import '@fortawesome/fontawesome-free/css/all.min.css'
 import '@fortawesome/fontawesome-free/js/all.min'
 import 'antd/dist/antd.css';
 import 'lodash/lodash.js'
+import 'react-modal-video/css/modal-video.min.css';
 //STORE
-import {createStore, applyMiddleware,compose} from "redux";
+import {createStore, applyMiddleware, compose} from "redux";
 import {Provider} from "react-redux";
 import rootReducer from "./services/reducers";
 import thunk from "redux-thunk";
@@ -26,9 +27,9 @@ const store = createStore(
 )
 ReactDOM.render(
     // <React.StrictMode>
-        <Provider store={store}>
-            <App/>
-        </Provider>
+    <Provider store={store}>
+        <App/>
+    </Provider>
     // </React.StrictMode>
     ,
     document.getElementById('root')

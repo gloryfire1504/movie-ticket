@@ -68,7 +68,7 @@ class CinemaCluster extends Component {
                 }}
                     key={index}
                     style={{cursor: "pointer"}}
-                    className="text-left list-group-item list-group-item-action">
+                    className=" text-left list-group-item list-group-item-action">
                     <div>
                         <b>Tên cụm rạp: </b><span>{item.tenCumRap}</span>
                     </div>
@@ -89,7 +89,7 @@ class CinemaCluster extends Component {
                 <Element  style={{padding:"60px 0"}} name='cinema-cluster'>
                     <div className='h-100 container-cinema-cluster container'>
                         <Row>
-                            <Col span={6}>
+                            <Col  span={6}>
                                 <ul className="list-group">
                                     {this.renderCinemaClusterInfoList()}
                                 </ul>
@@ -102,7 +102,6 @@ class CinemaCluster extends Component {
                         </Row>
                     </div>
                 </Element>
-
             </StyledCinemaCluster>
         );
     }
