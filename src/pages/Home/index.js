@@ -8,19 +8,26 @@ import Footer from "../../components/Footer";
 // import {BackTop,Button} from 'antd'
 class Home extends React.Component {
     componentDidMount() {
-        // let nav = document.getElementById('navbar');
-        // nav.style.display = 'none'
+        let nav = document.getElementById('navbar');
+        nav.classList.remove('fixed-top')
         setTimeout(() => {
             let myLoading = document.getElementById('myLoading')
             myLoading.style.display = 'none';
-            // nav.style.display = 'fixed'
+            let myBody = document.getElementById('myBody')
+            if (this.props.location.pathname === '/home' || this.props.location.pathname === '/') {
+                myBody.style.paddingTop = "60px";
+                nav.classList.add('fixed-top')
+            } else {
+                myBody.style.paddingTop = "0px";
+            }
         }, 2000)
-        // setTimeout(myLoading.style.display = 'none', 2000)
     }
 
     componentWillUnmount() {
         let myLoading = document.getElementById('myLoading')
         myLoading.style.display = 'flex'
+        let myBody = document.getElementById('myBody')
+        myBody.style.paddingTop = "0px";
     }
 
     // constructor(props) {

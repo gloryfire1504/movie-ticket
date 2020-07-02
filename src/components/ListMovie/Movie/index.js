@@ -96,7 +96,7 @@ class Movie extends React.Component {
                                     <div
                                         className='d-flex flex-column movie-card-detail'>
                                         <Meta title={movie.tenPhim}/>
-                                        <Rate style={{fontSize: '15px', padding: "10px 0"}} className='movie-rate'
+                                        <Rate style={{fontSize: '15px', padding: "10px 0"}}
                                               disabled
                                               value={movie.danhGia}/>
                                     </div>

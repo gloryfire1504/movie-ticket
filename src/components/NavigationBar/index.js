@@ -20,36 +20,19 @@ class NavigationBar extends Component {
         }
     }
 
-    componentDidMount() {
 
-    }
-
-    componentDidUpdate() {
-        let nav = document.getElementById('navbar');
-        let body = document.getElementById('myBody')
-        let navClass = nav.classList;
-        for (let i = 0; i < navClass.length; i++) {
-            if (navClass[i] === 'fixed-top') {
-                body.style.paddingTop = "60px";
-            } if (navClass[i] !== 'fixed-top') {
-                body.style.paddingTop = "0px";
-            }
-        }
-    }
 
     handleHomeOnclick = () => {
-        if (this.props.location.pathname === '/home') {
+        if (this.props.location.pathname === '/home'||this.props.location.pathname === '/') {
             window.scrollTo(0, 0)
         } else {
             this.props.history.push('/home')
             window.scrollTo(0, 0)
         }
-
     }
     handleOnclick = () => {
         this.props.history.push('/home')
     }
-
     render() {
         // console.log(document.getElementById('list-movie'))
         // console.log(this.props)
@@ -110,7 +93,6 @@ class NavigationBar extends Component {
                                                     offset={-60}
                                                     className='nav-others nav-link'
                                                     activeClass='some-active-class'
-
                                         >Danh sách phim
                                         </ScrollLink>
                                         :
@@ -138,7 +120,7 @@ class NavigationBar extends Component {
                                         :
                                         <a
                                             onClick={this.handleOnclick}
-                                            className="nav-link"
+                                            className="nav-others nav-link"
                                             href='#cinema-cluster'
                                         >
                                             Cụm rạp

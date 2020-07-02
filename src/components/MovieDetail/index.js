@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import NavigationBar from "../NavigationBar";
 import {Link} from "react-router-dom";
 import BgDetailMovie from '../../assets/images/bg-detail-movie.jpg'
+import {Rate} from 'antd'
 
 class MovieDetail extends React.Component {
     constructor(props) {
@@ -70,12 +71,12 @@ class MovieDetail extends React.Component {
                 <div className='detail-wrapper'>
                     <div style={{
                         width: '100%',
-                        height:"80vh",
+                        height: "80vh",
                         backgroundImage: `url(${BgDetailMovie})`,
                         backgroundSize: "cover",
-                        display:"flex",
-                        justifyContent:"center",
-                        alignItems:"center",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
                     }}>
                         <div className={'container mt-0 mb-3'}>
                             <div style={{padding: "60px 0"}} className={'row detailMainInfo'}>
@@ -93,7 +94,9 @@ class MovieDetail extends React.Component {
                                             <b>Ngày khởi chiếu: </b><span>{movieDetail.ngayKhoiChieu}</span>
                                         </li>
                                         <li className="list-group-item text-left">
-                                            <b>Đánh giá: </b><span>{movieDetail.danhGia}</span>
+                                            <b>Đánh giá: </b><Rate style={{fontSize: '15px', padding: "10px 0"}}
+                                                                   disabled
+                                                                   value={movieDetail.danhGia}/>
                                         </li>
                                         <li className="list-group-item text-left">
                                             <b>Mô tả: </b><span>{movieDetail.moTa}</span>
