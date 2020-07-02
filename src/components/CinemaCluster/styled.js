@@ -22,6 +22,8 @@ export const StyledCinemaCluster = styled.div`
     }   
   }
  @media only screen and (min-width: 768px) {
+ padding-top: 60px;
+    margin-top: -60px;
  .listCuster {
     justify-content: flex-start !important;
       & .system-name {
