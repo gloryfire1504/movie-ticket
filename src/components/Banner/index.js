@@ -1,5 +1,9 @@
 import React from 'react';
 import {BannerStyled} from "./styled";
+import {Carousel} from "antd";
+import img1 from '../../assets/images/Banner/aspettando-fast-furious-9-cosa-sappiamo-trailer-v9-47177.jpg'
+import img2 from '../../assets/images/Banner/Ted-Slacker.jpg'
+import img3 from '../../assets/images/Banner/deadpool-2.jpg'
 
 const Banner = (props) => {
     return (
@@ -7,50 +11,39 @@ const Banner = (props) => {
             className="carousel"
             data-ride="carousel"
         >
-            <ol className="carousel-indicators">
-                <li
-                    data-target="#carouselExampleIndicators"
-                    data-slide-to={0}
-                    className="active"
-                />
-                <li data-target="#carouselExampleIndicators" data-slide-to={1}/>
-                <li data-target="#carouselExampleIndicators" data-slide-to={2}/>
-            </ol>
-            <div className="carousel-inner">
-                <div className="carousel-item active">
-                    <img className="d-block w-100 banner-img" src={require("./../../assets/images/Banner/aspettando-fast-furious-9-cosa-sappiamo-trailer-v9-47177.jpg")}
-                         alt="First slide"/>
+            <Carousel autoplay
+            dots={false}>
+                <div>
+                    <h3>
+                        <img
+                            style={{height: '90vh'}}
+                            className={'w-100'}
+                            src={img1}
+                            alt="First slide"/>
+                    </h3>
                 </div>
-                {/*<div className="carousel-item">*/}
-                {/*    <img className="d-block w-100" src=""*/}
-                {/*         alt="Second slide"/>*/}
-                {/*</div>*/}
-                {/*<div className="carousel-item">*/}
-                {/*    <img className="d-block w-100" src="..." alt="Third slide"/>*/}
-                {/*</div>*/}
-            </div>
-            <a
-                className="carousel-control-prev"
-                href="#carouselExampleIndicators"
-                role="button"
-                data-slide="prev"
-            >
-                <span className="carousel-control-prev-icon" aria-hidden="true"/>
-                <span className="sr-only">Previous</span>
-            </a>
-            <a
-                className="carousel-control-next"
-                href="#carouselExampleIndicators"
-                role="button"
-                data-slide="next"
-            >
-                <span className="carousel-control-next-icon" aria-hidden="true"/>
-                <span className="sr-only">Next</span>
-            </a>
+                <div>
+                    <h3>
+                        <img
+                            style={{height: '90vh'}}
+                            className={'w-100'}
+                            src={img2}
+                            alt="Second slide"/>
+                    </h3>
+                </div>
+                <div>
+                    <h3>
+                        <img
+                            style={{height: '90vh'}}
+                            className={'w-100'}
+                            src={img3}
+                            alt="Third slide"/>
+                    </h3>
+                </div>
+            </Carousel>
         </BannerStyled>
     )
 }
-
 
 
 export default Banner;
