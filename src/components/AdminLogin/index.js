@@ -13,9 +13,7 @@ class AdminLogin extends Component {
             authenticate: false
         }
     }
-
     static getDerivedStateFromProps(nextProps, prevState) {
-        console.log(nextProps.errors)
         if (nextProps.authenticate === true) {
             if (nextProps.userType === 'QuanTri') {
                 nextProps.history.push('/admin/dashboard')
@@ -30,7 +28,6 @@ class AdminLogin extends Component {
             return null
         }
     }
-
     render() {
         const {
             errors,
@@ -78,7 +75,6 @@ const AdminLoginFormik = withFormik({
             .min(5, 'Mật khẩu phải từ 6 kí tự trở lên')
     }),
     handleSubmit: (values, {props, setSubmitting, setFieldError}) => {
-        console.log(props)
         Axios({
             method: "POST",
             url: "http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap",

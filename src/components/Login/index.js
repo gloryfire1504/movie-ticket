@@ -115,7 +115,7 @@ class Login extends Component {
                                             <input type="checkbox"/>Remember Me
                                         </div>
                                         <div className="form-group">
-                                            <input style={{position: "absolute", top: 0, left: 0}} type="submit"
+                                            <input type="submit"
                                                    value="Login"
                                                    className="btn float-right login_btn"/>
                                         </div>

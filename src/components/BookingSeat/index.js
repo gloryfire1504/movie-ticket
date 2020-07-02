@@ -7,7 +7,6 @@ import {StyledBookingSeat} from "./styled";
 import NavigationBar from "../NavigationBar";
 import Footer from "../Footer";
 import WrapperImage from '../../assets/images/Banner/banner.jpg'
-// import {logOut} from "../../services/Login/action";
 
 class BookingSeat extends Component {
     constructor(props) {
@@ -33,9 +32,7 @@ class BookingSeat extends Component {
         }, 2000)
         this.state.getRoomTicket()
     }
-
     UNSAFE_componentWillReceiveProps(nextProps) {
-        // console.log(nextProps)
         if (nextProps.isBookingSuccess) {
             this.state.getRoomTicket()
         }
@@ -49,20 +46,16 @@ class BookingSeat extends Component {
             })
         }
     }
-
     componentWillUnmount() {
         let myLoading = document.getElementById('myLoading')
         myLoading.style.display = 'flex'
     }
-
     setOrderedTicket = (state) => {
         this.setState({
             orderedTicket: state
         }, () => {
         })
     }
-
-
     handleOnclick = () => {
         let {orderedTicket, accessToken} = this.state
         if (orderedTicket&& accessToken) {
@@ -71,10 +64,8 @@ class BookingSeat extends Component {
             this.props.history.push(`/login/${this.props.history.location.pathname.indexOf('/booking-seat') !== -1 ? this.state.maLichChieu : 'a'}`)
         }
     }
-
     render() {
         let {tenPhim, tenCumRap, diaChi, tenRap, ngayChieu, gioChieu} = this.props.filmDetail
-
         return (
             <StyledBookingSeat>
                 <NavigationBar/>
@@ -168,8 +159,6 @@ class BookingSeat extends Component {
         );
     }
 }
-
-
 const mapStateToProps = (state) => {
     return {
         filmDetail: state.BookingSeatReducer.thongTinPhim,
@@ -185,7 +174,6 @@ const mapDispatchToProps = (dispatch) => {
         actSubmitBooking: (bookingInfo, accessToken) => {
             dispatch(actSubmitBooking(bookingInfo, accessToken))
         }
-
     }
 }
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BookingSeat));

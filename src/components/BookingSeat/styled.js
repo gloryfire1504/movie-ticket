@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const StyledBookingSeat = styled.div`
   .wrapper {
-  height: 100%;
+    height: 100%;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -11,7 +11,6 @@ export const StyledBookingSeat = styled.div`
     background-attachment: fixed;
     font-family: 'Source Sans Pro', sans-serif;
     padding-bottom: 60px;
-
     h1 {
       font-size: 2.9em;
       text-transform: uppercase;
@@ -24,7 +23,6 @@ export const StyledBookingSeat = styled.div`
       font-family: 'Source Sans Pro', sans-serif;
       padding-top: 40px;
     }
-
     .container {
       display: -webkit-flex;
       display: -webkit-box;
@@ -39,8 +37,6 @@ export const StyledBookingSeat = styled.div`
       -ms-flex-pack: center;
       -webkit-justify-content: center;
       justify-content: center;
-
-
       .mseat-reg {
         width: 80%;
         margin: 0 5vw;
@@ -50,10 +46,7 @@ export const StyledBookingSeat = styled.div`
         display: flex;
         display: -webkit-flex;
         flex-wrap: wrap;
-
         .inputForm {
-
-
           h2 {
             color: #ff9800;
             text-transform: capitalize;
@@ -62,25 +55,20 @@ export const StyledBookingSeat = styled.div`
             letter-spacing: 0.5px;
             line-height: 1.7;
           }
-
           .input-wrapper {
             align-items: center;
             margin: auto;
-
             .agileits-left {
               flex-basis: 60%;
               margin-bottom: 1.5em;
-
               label {
                 font-size: 1em;
                 color: #fff;
                 font-weight: 600;
-
                 span {
                   color: #f00;
                 }
               }
-
               input[type='text'] {
                 padding: 1em;
                 width: 90%;
@@ -92,21 +80,17 @@ export const StyledBookingSeat = styled.div`
                 color: #fff;
               }
             }
-
             .agileits-right {
               flex-basis: 40%;
               margin-bottom: 1.5em;
-
               label {
                 font-size: 1em;
                 color: #fff;
                 font-weight: 600;
-
                 span {
                   color: #f00;
                 }
               }
-
               input[type='number'] {
                 padding: 1em;
                 width: 80%;
@@ -118,9 +102,7 @@ export const StyledBookingSeat = styled.div`
                 color: #fff;
               }
             }
-
           }
-
           .start-select {
             background: #f5f5f5;
             border: none;
@@ -134,16 +116,13 @@ export const StyledBookingSeat = styled.div`
             cursor: pointer;
           }
         }
-
         .seat_mbt {
           margin: 2em 0;
-
           .smallBox {
             text-align: left;
             display: inline-block;
             margin-right: 1em;
             color: #fff;
-
             &.greenBox {
               &::before {
                 content: "";
@@ -154,7 +133,6 @@ export const StyledBookingSeat = styled.div`
                 margin-right: 10px;
               }
             }
-
             &.redBox {
               &::before {
                 content: "";
@@ -165,7 +143,6 @@ export const StyledBookingSeat = styled.div`
                 margin-right: 10px;
               }
             }
-
             &.emptyBox {
               &::before {
                 content: "";
@@ -178,27 +155,14 @@ export const StyledBookingSeat = styled.div`
             }
           }
         }
-
         .seatStructure {
           width: 100%;
-
           table {
             td {
               padding: 10px 10px;
               color: white;
               position: relative;
               vertical-align: middle;
-
-              //input[type=checkbox] {
-              //    width: 20px;
-              //    height: 20px;
-              //    cursor: pointer;
-              //    position: absolute;
-              //    top: 50%;
-              //    left: 50%;
-              //    transform: translate(-50%, -50%);
-              //    pointer-events: none;
-              //}
               & .seat-status {
                 width: 30px;
                 height: 30px;
@@ -217,12 +181,10 @@ export const StyledBookingSeat = styled.div`
               }
             }
           }
-
           .screen {
             width: 100%;
             background: #ff9800;
             margin: 2em 0;
-
             .wthree {
               padding: 0.8em;
               font-size: 1.2em;
@@ -236,6 +198,5 @@ export const StyledBookingSeat = styled.div`
         }
       }
     }
-
   }
 `

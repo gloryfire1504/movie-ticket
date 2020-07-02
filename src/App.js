@@ -5,12 +5,9 @@ import './App.css';
 import NavigationBar from "./components/NavigationBar";
 import Login from "./components/Login/";
 import NotFound from "./components/NotFound";
-//ROUTER
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {routesHome} from "./routes";
-//REDUX
 import {connect} from 'react-redux'
-import DashBoard from "./components/DashBoard";
 import AdminLogin from "./components/AdminLogin";
 import {logIn} from "./services/Login/action";
 
@@ -21,13 +18,6 @@ class App extends React.Component {
             this.props.postUser(auth)
         }
     }
-
-    //
-    // componentWillUnmount() {
-    //     let myLoading = document.getElementById('myLoading')
-    //     myLoading.style.display = 'block'
-    // }
-
     render() {
         const {authenticate, userType} = this.props
         let showMenuHome = (routes) => {
@@ -50,12 +40,12 @@ class App extends React.Component {
                         {showMenuHome(routesHome)}
                         <Route path={'/login/:param'} exact={false} component={Login}/>
                         <Route path={'/admin'} exact={true} component={AdminLogin}/>
-                        <Route path={'/admin/dashboard'} exact={false}
-                               component={authenticate && userType === 'QuanTri' ? DashBoard : NotFound}
-                               render={(props) => {
-                                   return <NavigationBar {...props}/>
-                               }}
-                        />
+                        {/*<Route path={'/admin/dashboard'} exact={false}*/}
+                        {/*       component={authenticate && userType === 'QuanTri' ? DashBoard : NotFound}*/}
+                        {/*       render={(props) => {*/}
+                        {/*           return <NavigationBar {...props}/>*/}
+                        {/*       }}*/}
+                        {/*/>*/}
                         <Route component={NotFound}/>
                     </Switch>
                 </div>
@@ -63,7 +53,6 @@ class App extends React.Component {
         );
     }
 }
-
 const mapStateToProps = (state) => {
     return {
         authenticate: state.AdminLoginReducer.authenticate,
@@ -76,6 +65,5 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(logIn(data))
         }
     }
-
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App);

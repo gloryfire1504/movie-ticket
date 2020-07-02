@@ -14,30 +14,24 @@ const Banner = (props) => {
                 dots={false}>
                 <div className='banner-img'>
                     <img
-                        // style={{height: '90vh'}}
                         className={'w-100'}
                         src={img1}
                         alt="First slide"/>
                 </div>
                 <div className='banner-img'>
                     <img
-                        // style={{height: '90vh'}}
                         className={'w-100'}
                         src={img2}
                         alt="Second slide"/>
                 </div>
                 <div className='banner-img'>
                     <img
-                        // style={{height: '90vh'}}
                         className={'w-100'}
                         src={img3}
                         alt="Third slide"/>
-
                 </div>
             </Carousel>
         </BannerStyled>
     )
 }
-
-
 export default Banner;

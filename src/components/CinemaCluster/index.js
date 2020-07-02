@@ -14,7 +14,6 @@ class CinemaCluster extends Component {
             normalClassName: ''
         }
     }
-
     componentDidMount() {
         this.props.getCinemaClusterInfo()
         this.props.getCinemaInfo("BHDStar");
@@ -22,7 +21,6 @@ class CinemaCluster extends Component {
             activeClassName: 'activeCluster'
         })
     }
-
     handleOnclickCinemaCluster = (maHeThongRap, e) => {
         this.props.getCinemaInfo(maHeThongRap);
         let listClusterEle = document.getElementsByClassName('listCuster')
@@ -32,10 +30,6 @@ class CinemaCluster extends Component {
         }
         e.target.classList.remove('normalCluster')
         e.target.classList.add('activeCluster')
-
-
-    }
-    handleOnclickCinema = (maCumRap) => {
     }
     //Render thong tin cum rap
     renderCinemaClusterInfoList = () => {
@@ -54,7 +48,6 @@ class CinemaCluster extends Component {
                 </li>
             )
         })
-
         return eleCinemaCluster;
     }
     //END Render thong tin cum rap
@@ -80,9 +73,7 @@ class CinemaCluster extends Component {
         })
         return eleCinema;
     }
-
     //END Render thong tin rap
-
     render() {
         return (
             <StyledCinemaCluster id='cinema-cluster' >
@@ -106,7 +97,6 @@ class CinemaCluster extends Component {
         );
     }
 }
-
 const mapStateToProps = (state) => {
     return {
         cinemaClusterInfoList: state.CinemaClusterReducer.cinemaClusterInfo,
@@ -121,7 +111,6 @@ const mapDispatchToProps = (dispatch) => {
         getCinemaInfo: (maHeThongRap) => {
             dispatch(getCinemaInfoAPI(maHeThongRap))
         }
-
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(CinemaCluster);

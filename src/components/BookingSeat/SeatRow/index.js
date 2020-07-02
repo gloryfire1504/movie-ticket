@@ -13,7 +13,6 @@ class SeatRow extends Component {
             mySeatName: ''
         }
     }
-
     UNSAFE_componentWillReceiveProps(nextProps, nextContext) {
         if (nextProps.user) {
             this.setState({
@@ -21,7 +20,6 @@ class SeatRow extends Component {
             })
         }
     }
-
     handleOnclick = (e, item) => {
         //Toggle seat color
         if (e.target.style.backgroundColor === 'lightgrey') {
@@ -43,12 +41,9 @@ class SeatRow extends Component {
         let Children = e.target.children;
         for (let i = 0; i < Children.length; i++) {
             if (Children[i].className === 'myCheckSeat') {
-                // console.log(inputChildren[i])
                 Children[i].click()
             }
         }
-
-
         //Set maLichChieu
         let {maLichChieu} = this.props.filmDetail
         if (maLichChieu) {
@@ -59,18 +54,14 @@ class SeatRow extends Component {
             })
         }
     }
-
     renderSeatRow = () => {
-        // let {maLichChieu} = this.props.filmDetail
         let seatRowGroup = _.chunk(this.props.SeatList, 16)
         if (seatRowGroup) {
             return seatRowGroup.map((items, index) => {
-                // console.log(maLichChieu)
                 return (
                     <tr key={index}>
                         <td>{index + 1}</td>
                         {items.map((item, index) => {
-                            // console.log(item)
                             return (<td key={index}>
                                     <Tooltip mouseLeaveDelay={0} placement="top" title={item.giaVe + ' VND'}>
                                         <div style={{
@@ -96,10 +87,7 @@ class SeatRow extends Component {
             })
         }
     }
-
     render() {
-        // this.props.orderedTicket(this.state)
-        // console.log(this.props)
         return (
             <React.Fragment>
                 {this.renderSeatRow()}
@@ -107,13 +95,11 @@ class SeatRow extends Component {
         );
     }
 }
-
-const
-    mapStateToProps = (state) => {
-        return {
-            SeatList: state.BookingSeatReducer.danhSachGhe,
-            filmDetail: state.BookingSeatReducer.thongTinPhim,
-            user: state.LoginReducer.userDetail
-        }
+const mapStateToProps = (state) => {
+    return {
+        SeatList: state.BookingSeatReducer.danhSachGhe,
+        filmDetail: state.BookingSeatReducer.thongTinPhim,
+        user: state.LoginReducer.userDetail
     }
+}
 export default connect(mapStateToProps, null)(SeatRow);
